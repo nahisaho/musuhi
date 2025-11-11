@@ -1,0 +1,60 @@
+{
+  "name": "musuhi",
+  "version": "0.1.0",
+  "description": "Specification Driven Development AI agent installer with 19 specialized agents for Claude Code and GitHub Copilot",
+  "main": "dist/index.js",
+  "bin": {
+    "musuhi": "bin/musuhi.js"
+  },
+  "scripts": {
+    "build": "tsc && npm run copy-templates",
+    "copy-templates": "cp -r src/templates dist/",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "claude-code",
+    "github-copilot",
+    "agents",
+    "cli",
+    "installer",
+    "ai",
+    "specification-driven-development",
+    "sdd",
+    "code-review",
+    "development-tools",
+    "automation",
+    "orchestrator",
+    "requirements-analysis",
+    "architecture",
+    "npx"
+  ],
+  "author": "Musuhi Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nahisaho/musuhi.git"
+  },
+  "homepage": "https://github.com/nahisaho/musuhi#readme",
+  "bugs": {
+    "url": "https://github.com/nahisaho/musuhi/issues"
+  },
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "dependencies": {
+    "commander": "^12.1.0",
+    "inquirer": "^9.2.12",
+    "chalk": "^5.3.0",
+    "ora": "^8.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/inquirer": "^9.0.7",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
