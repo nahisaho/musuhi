@@ -40,11 +40,28 @@ export async function installAgents(options: InstallOptions): Promise<void> {
 
     // ツール固有の設定ファイルをコピー
     if (await directoryExists(toolTemplateDir)) {
-      const toolTargetDir = tool === 'claude-code'
-        ? path.join(targetDir, '.claude')
-        : path.join(targetDir, '.github');
+      const entries = await fs.readdir(toolTemplateDir, { withFileTypes: true });
 
-      await copyDirectory(toolTemplateDir, toolTargetDir);
+      for (const entry of entries) {
+        if (entry.isFile()) {
+          const srcPath = path.join(toolTemplateDir, entry.name);
+          let destPath: string;
+
+          // CLAUDE.md と copilot-instructions.md はプロジェクトルートにコピー
+          if (entry.name === 'CLAUDE.md' || entry.name === 'copilot-instructions.md') {
+            destPath = path.join(targetDir, entry.name);
+          } else {
+            // その他のファイル（README.md等）は .claude/ または .github/ にコピー
+            const toolTargetDir = tool === 'claude-code'
+              ? path.join(targetDir, '.claude')
+              : path.join(targetDir, '.github');
+            await fs.mkdir(toolTargetDir, { recursive: true });
+            destPath = path.join(toolTargetDir, entry.name);
+          }
+
+          await fs.copyFile(srcPath, destPath);
+        }
+      }
     }
 
     spinner.succeed(chalk.green('Agents installed successfully!'));

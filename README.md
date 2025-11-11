@@ -74,8 +74,8 @@ Agents are installed to `.claude/agents/`:
 
 ```
 your-project/
+├── CLAUDE.md              # Project configuration for Claude Code
 └── .claude/
-    ├── CLAUDE.md          # Project configuration for Claude Code
     ├── README.md          # Agent documentation
     └── agents/            # 19 specialized agents
         ├── orchestrator.md
@@ -84,7 +84,7 @@ your-project/
         └── ... (16 more agents)
 ```
 
-The `CLAUDE.md` file provides Claude Code with project-specific context, including:
+The `CLAUDE.md` file (in project root) provides Claude Code with project-specific context, including:
 - Available agents and their purposes
 - SDD workflow guidance
 - Quick reference commands
@@ -95,17 +95,17 @@ Agents are installed to `.github/agents/`:
 
 ```
 your-project/
+├── copilot-instructions.md  # Project configuration for GitHub Copilot
 └── .github/
-    ├── copilot-instructions.md  # Project configuration for GitHub Copilot
-    ├── README.md                # Agent documentation
-    └── agents/                  # 19 specialized agents
+    ├── README.md            # Agent documentation
+    └── agents/              # 19 specialized agents
         ├── orchestrator.md
         ├── code-reviewer.md
         ├── software-developer.md
         └── ... (16 more agents)
 ```
 
-The `copilot-instructions.md` file provides GitHub Copilot with project-specific context, including:
+The `copilot-instructions.md` file (in project root) provides GitHub Copilot with project-specific context, including:
 - Available agents and their purposes
 - SDD workflow guidance
 - Quick reference commands

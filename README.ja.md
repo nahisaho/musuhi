@@ -74,8 +74,8 @@ npx musuhi install --tool claude-code --dir /path/to/project
 
 ```
 your-project/
+├── CLAUDE.md              # Claude Code用プロジェクト設定
 └── .claude/
-    ├── CLAUDE.md          # Claude Code用プロジェクト設定
     ├── README.md          # エージェントドキュメント
     └── agents/            # 19個の専門エージェント
         ├── orchestrator.md
@@ -84,7 +84,7 @@ your-project/
         └── ... (他16個のエージェント)
 ```
 
-`CLAUDE.md` ファイルは、Claude Codeにプロジェクト固有のコンテキストを提供します：
+`CLAUDE.md` ファイル（プロジェクトルート）は、Claude Codeにプロジェクト固有のコンテキストを提供します：
 - 利用可能なエージェントとその目的
 - SDDワークフローガイダンス
 - クイックリファレンスコマンド
@@ -95,17 +95,17 @@ your-project/
 
 ```
 your-project/
+├── copilot-instructions.md  # GitHub Copilot用プロジェクト設定
 └── .github/
-    ├── copilot-instructions.md  # GitHub Copilot用プロジェクト設定
-    ├── README.md                # エージェントドキュメント
-    └── agents/                  # 19個の専門エージェント
+    ├── README.md            # エージェントドキュメント
+    └── agents/              # 19個の専門エージェント
         ├── orchestrator.md
         ├── code-reviewer.md
         ├── software-developer.md
         └── ... (他16個のエージェント)
 ```
 
-`copilot-instructions.md` ファイルは、GitHub Copilotにプロジェクト固有のコンテキストを提供します：
+`copilot-instructions.md` ファイル（プロジェクトルート）は、GitHub Copilotにプロジェクト固有のコンテキストを提供します：
 - 利用可能なエージェントとその目的
 - SDDワークフローガイダンス
 - クイックリファレンスコマンド
