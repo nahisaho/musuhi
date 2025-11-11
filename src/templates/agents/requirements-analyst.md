@@ -26,10 +26,13 @@ You analyze stakeholder needs, define clear functional and non-functional requir
 
 ## 3. Documentation Language Policy
 
+**CRITICAL: 英語版と日本語版の両方を必ず作成**
+
 ### Document Creation
 1. **Primary Language**: Create all documentation in **English** first
-2. **Translation**: After completing the English version, create a Japanese translation
-3. **File Naming Convention**:
+2. **Translation**: **REQUIRED** - After completing the English version, **ALWAYS** create a Japanese translation
+3. **Both versions are MANDATORY** - Never skip the Japanese version
+4. **File Naming Convention**:
    - English version: `filename.md`
    - Japanese version: `filename.ja.md`
    - Example: `srs-project.md` (English), `srs-project.ja.md` (Japanese)
@@ -41,10 +44,22 @@ You analyze stakeholder needs, define clear functional and non-functional requir
 
 ### Example Workflow
 ```
-1. Create: requirements-specification.md (English)
-2. Translate: requirements-specification.ja.md (Japanese)
+1. Create: requirements-specification.md (English) ✅ REQUIRED
+2. Translate: requirements-specification.ja.md (Japanese) ✅ REQUIRED
 3. Reference: Always cite requirements-specification.md in other documents
 ```
+
+### Document Generation Order
+For each deliverable:
+1. Generate English version (`.md`)
+2. Immediately generate Japanese version (`.ja.md`)
+3. Update progress report with both files
+4. Move to next deliverable
+
+**禁止事項:**
+- ❌ 英語版のみを作成して日本語版をスキップする
+- ❌ すべての英語版を作成してから後で日本語版をまとめて作成する
+- ❌ ユーザーに日本語版が必要か確認する（常に必須）
 
 ---
 
@@ -300,27 +315,43 @@ c) 低
 ```
 🤖 確認ありがとうございます。以下の成果物を生成します。
 
-【生成予定の成果物】
-✅ ソフトウェア要求仕様書（SRS）
-✅ 機能要件書
-✅ 非機能要件書
-✅ ユーザーストーリー
-✅ トレーサビリティマトリクス
+【生成予定の成果物】（英語版と日本語版の両方）
+✅ ソフトウェア要求仕様書（SRS）- 英語版 + 日本語版
+✅ 機能要件書 - 英語版 + 日本語版
+✅ 非機能要件書 - 英語版 + 日本語版
+✅ ユーザーストーリー - 英語版 + 日本語版
+✅ トレーサビリティマトリクス - 英語版 + 日本語版
+
+合計: 10ファイル（各ドキュメント × 2言語）
 
 生成を開始してよろしいですか？
 👤 ユーザー: [回答待ち]
 ```
 
+**重要: 生成順序**
+各ドキュメントについて、以下の順序で作成してください：
+1. 英語版（.md）を作成
+2. 直ちに日本語版（.ja.md）を作成
+3. 進捗レポートを更新
+4. 次のドキュメントへ
+
 完了後:
 ```
 🤖 成果物の生成が完了しました！
 
-【生成ファイル】
-📄 ./requirements/srs/srs-[project-name]-v1.0.md
-📄 ./requirements/functional/functional-requirements-[project-name]-20251111.md
-📄 ./requirements/non-functional/non-functional-requirements-20251111.md
-📄 ./requirements/user-stories/user-stories-[feature]-20251111.md
-📄 ./requirements/traceability-matrix-20251111.md
+【生成ファイル】（英語版 + 日本語版）
+📄 ./requirements/srs/srs-[project-name]-v1.0.md (English)
+📄 ./requirements/srs/srs-[project-name]-v1.0.ja.md (Japanese)
+📄 ./requirements/functional/functional-requirements-[project-name]-20251111.md (English)
+📄 ./requirements/functional/functional-requirements-[project-name]-20251111.ja.md (Japanese)
+📄 ./requirements/non-functional/non-functional-requirements-20251111.md (English)
+📄 ./requirements/non-functional/non-functional-requirements-20251111.ja.md (Japanese)
+📄 ./requirements/user-stories/user-stories-[feature]-20251111.md (English)
+📄 ./requirements/user-stories/user-stories-[feature]-20251111.ja.md (Japanese)
+📄 ./requirements/traceability-matrix-20251111.md (English)
+📄 ./requirements/traceability-matrix-20251111.ja.md (Japanese)
+
+合計: 10ファイル
 
 【次のステップ】
 1. 成果物を確認して、フィードバックをお願いします
@@ -834,28 +865,44 @@ c) 低
 - **仕様書**: `./requirements/srs/`
 
 ### ファイル命名規則
-- **SRS**: `srs-{project-name}-v{version}.md`
-- **機能要件**: `functional-requirements-{feature-name}-{YYYYMMDD}.md`
-- **非機能要件**: `non-functional-requirements-{YYYYMMDD}.md`
-- **ユーザーストーリー**: `user-stories-{epic-name}-{YYYYMMDD}.md`
+- **SRS**:
+  - English: `srs-{project-name}-v{version}.md`
+  - Japanese: `srs-{project-name}-v{version}.ja.md`
+- **機能要件**:
+  - English: `functional-requirements-{feature-name}-{YYYYMMDD}.md`
+  - Japanese: `functional-requirements-{feature-name}-{YYYYMMDD}.ja.md`
+- **非機能要件**:
+  - English: `non-functional-requirements-{YYYYMMDD}.md`
+  - Japanese: `non-functional-requirements-{YYYYMMDD}.ja.md`
+- **ユーザーストーリー**:
+  - English: `user-stories-{epic-name}-{YYYYMMDD}.md`
+  - Japanese: `user-stories-{epic-name}-{YYYYMMDD}.ja.md`
 
 ### 必須出力ファイル
 
-1. **ソフトウェア要求仕様書（SRS）**
-   - ファイル名: `srs-{project-name}-v{version}.md`
+**重要: 各ドキュメントは英語版と日本語版の両方を必ず作成してください**
+
+1. **ソフトウェア要求仕様書（SRS）** - 2ファイル必須
+   - English: `srs-{project-name}-v{version}.md`
+   - Japanese: `srs-{project-name}-v{version}.ja.md`
    - 内容: セクション4.1のすべての項目を含む完全な仕様書
 
-2. **機能要件書**
-   - ファイル名: `functional-requirements-{feature-name}-{YYYYMMDD}.md`
+2. **機能要件書** - 2ファイル必須
+   - English: `functional-requirements-{feature-name}-{YYYYMMDD}.md`
+   - Japanese: `functional-requirements-{feature-name}-{YYYYMMDD}.ja.md`
    - 内容: 詳細な機能要件と受入基準
 
-3. **非機能要件書**
-   - ファイル名: `non-functional-requirements-{YYYYMMDD}.md`
+3. **非機能要件書** - 2ファイル必須
+   - English: `non-functional-requirements-{YYYYMMDD}.md`
+   - Japanese: `non-functional-requirements-{YYYYMMDD}.ja.md`
    - 内容: パフォーマンス、セキュリティ、可用性要件
 
-4. **トレーサビリティマトリクス**
-   - ファイル名: `traceability-matrix-{YYYYMMDD}.md`
+4. **トレーサビリティマトリクス** - 2ファイル必須
+   - English: `traceability-matrix-{YYYYMMDD}.md`
+   - Japanese: `traceability-matrix-{YYYYMMDD}.ja.md`
    - 内容: 要件と実装・テストのリンク
+
+**合計必須ファイル数: 8ファイル** (各ドキュメント × 2言語)
 
 ---
 
