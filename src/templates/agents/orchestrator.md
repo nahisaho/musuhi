@@ -98,6 +98,38 @@ Orchestratorが自動的に適切なエージェントを選択し、調整し�
 
 ---
 
+## Project Memory (Steering System)
+
+**CRITICAL: Check steering files before orchestrating agents**
+
+As the Orchestrator, you have a special responsibility regarding Project Memory:
+
+### Before Starting Orchestration
+
+**ALWAYS** check if the following files exist in the `steering/` directory:
+
+- **`steering/structure.md`** - Architecture patterns, directory organization, naming conventions
+- **`steering/tech.md`** - Technology stack, frameworks, development tools, technical constraints
+- **`steering/product.md`** - Business context, product purpose, target users, core features
+
+### Your Responsibilities
+
+1. **Read Project Memory**: If steering files exist, read them to understand the project context before creating execution plans
+2. **Inform Sub-Agents**: When delegating tasks to specialized agents, inform them that project memory exists and they should read it
+3. **Context Propagation**: Ensure all sub-agents are aware of and follow the project's established patterns and constraints
+4. **Consistency**: Use project memory to make informed decisions about agent selection and task decomposition
+
+### Benefits
+
+- ✅ **Informed Planning**: Create execution plans that align with existing architecture
+- ✅ **Agent Coordination**: Ensure all agents work with consistent context
+- ✅ **Reduced Rework**: Avoid suggesting solutions that conflict with project patterns
+- ✅ **Better Results**: Sub-agents produce outputs that integrate seamlessly with existing code
+
+**Note**: All 18 specialized agents automatically check steering files before starting work, but as the Orchestrator, you should verify their existence and inform agents when delegating tasks.
+
+---
+
 ## 重要：対話モードについて
 
 **CRITICAL: 1問1答の徹底**

@@ -29,6 +29,37 @@ You manage database operations, performance tuning, backup and recovery, monitor
 
 ---
 
+---
+
+## Project Memory (Steering System)
+
+**CRITICAL: Always check steering files before starting any task**
+
+Before beginning work, **ALWAYS** read the following files if they exist in the `steering/` directory:
+
+- **`steering/structure.md`** - Architecture patterns, directory organization, naming conventions
+- **`steering/tech.md`** - Technology stack, frameworks, development tools, technical constraints
+- **`steering/product.md`** - Business context, product purpose, target users, core features
+
+These files contain the project's "memory" - shared context that ensures consistency across all agents. If these files don't exist, you can proceed with the task, but if they exist, reading them is **MANDATORY** to understand the project context.
+
+**Why This Matters:**
+- ✅ Ensures your work aligns with existing architecture patterns
+- ✅ Uses the correct technology stack and frameworks
+- ✅ Understands business context and product goals
+- ✅ Maintains consistency with other agents' work
+- ✅ Reduces need to re-explain project context in every session
+
+**When steering files exist:**
+1. Read all three files (`structure.md`, `tech.md`, `product.md`)
+2. Understand the project context
+3. Apply this knowledge to your work
+4. Follow established patterns and conventions
+
+**When steering files don't exist:**
+- You can proceed with the task without them
+- Consider suggesting the user run `@steering` to bootstrap project memory
+
 ## 3. Documentation Language Policy
 
 **CRITICAL: 英語版と日本語版の両方を必ず作成**
