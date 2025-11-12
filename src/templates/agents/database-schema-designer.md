@@ -347,34 +347,100 @@ f) すべて
 👤 ユーザー: [回答待ち]
 ```
 
-### Phase 5: 成果物生成
+### Phase 5: 段階的成果物生成
 
 ```
-🤖 確認ありがとうございます。以下の成果物を生成します。
+🤖 確認ありがとうございます。以下の成果物を順番に生成します。
 
 【生成予定の成果物】
-✅ ER図（Mermaid形式）
-✅ 正規化分析レポート
-✅ DDL（CREATE TABLE、CREATE INDEX）
-✅ インデックス設計書
-✅ データベース設計書
-✅ マイグレーション計画
+1. ER図（Mermaid形式）
+2. 正規化分析レポート
+3. DDL（CREATE TABLE、CREATE INDEX）
+4. インデックス設計書
+5. データベース設計書
+6. マイグレーション計画
+
+**重要: 段階的生成方式**
+各ドキュメントを1つずつ生成・保存し、進捗を報告します。
+これにより、途中経過が見え、エラーが発生しても部分的な成果物が残ります。
 
 生成を開始してよろしいですか？
 👤 ユーザー: [回答待ち]
 ```
 
-完了後:
-```
-🤖 成果物の生成が完了しました！
+ユーザーが承認後、**各ドキュメントを順番に生成**:
 
-【生成ファイル】
-📄 ./design/database/er-diagram-[project-name]-20251111.md
-📄 ./design/database/normalization-analysis-20251111.md
-📄 ./design/database/ddl-[project-name]-20251111.sql
-📄 ./design/database/index-design-20251111.md
-📄 ./design/database/database-design-[project-name]-20251111.md
-📄 ./design/database/migration-plan-20251111.md
+**Step 1: ER図**
+```
+🤖 [1/6] ER図（Mermaid形式）を生成しています...
+
+📝 ./design/database/er-diagram-[project-name]-20251112.md
+✅ 保存が完了しました
+
+[1/6] 完了。次のドキュメントに進みます。
+```
+
+**Step 2: 正規化分析レポート**
+```
+🤖 [2/6] 正規化分析レポートを生成しています...
+
+📝 ./design/database/normalization-analysis-20251112.md
+✅ 保存が完了しました
+
+[2/6] 完了。次のドキュメントに進みます。
+```
+
+**Step 3: DDL**
+```
+🤖 [3/6] DDL（CREATE TABLE、CREATE INDEX）を生成しています...
+
+📝 ./design/database/ddl-[project-name]-20251112.sql
+✅ 保存が完了しました
+
+[3/6] 完了。次のドキュメントに進みます。
+```
+
+**Step 4: インデックス設計書**
+```
+🤖 [4/6] インデックス設計書を生成しています...
+
+📝 ./design/database/index-design-20251112.md
+✅ 保存が完了しました
+
+[4/6] 完了。次のドキュメントに進みます。
+```
+
+**Step 5: データベース設計書**
+```
+🤖 [5/6] データベース設計書を生成しています...
+
+📝 ./design/database/database-design-[project-name]-20251112.md
+✅ 保存が完了しました
+
+[5/6] 完了。次のドキュメントに進みます。
+```
+
+**Step 6: マイグレーション計画**
+```
+🤖 [6/6] マイグレーション計画を生成しています...
+
+📝 ./design/database/migration-plan-20251112.md
+✅ 保存が完了しました
+
+[6/6] 完了。
+```
+
+**最終ステップ: すべて完了**
+```
+🤖 ✨ すべての成果物の生成が完了しました！
+
+【生成ファイル一覧】（合計: 6ファイル）
+📄 ./design/database/er-diagram-[project-name]-20251112.md
+📄 ./design/database/normalization-analysis-20251112.md
+📄 ./design/database/ddl-[project-name]-20251112.sql
+📄 ./design/database/index-design-20251112.md
+📄 ./design/database/database-design-[project-name]-20251112.md
+📄 ./design/database/migration-plan-20251112.md
 
 【次のステップ】
 1. 成果物を確認して、フィードバックをお願いします
@@ -384,6 +450,12 @@ f) すべて
    - DevOps Engineer（データベース自動デプロイ）
    - Performance Optimizer（クエリ最適化）
 ```
+
+**段階的生成のメリット:**
+- ✅ 各ドキュメント保存後に進捗が見える
+- ✅ エラーが発生しても部分的な成果物が残る
+- ✅ 大きなドキュメントでもメモリ効率が良い
+- ✅ ユーザーが途中経過を確認できる
 
 ---
 

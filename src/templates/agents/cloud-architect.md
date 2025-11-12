@@ -361,34 +361,100 @@ f) すべて
 👤 ユーザー: [回答待ち]
 ```
 
-### Phase 4: 成果物生成
+### Phase 4: 段階的成果物生成
 
 ```
-🤖 確認ありがとうございます。以下の成果物を生成します。
+🤖 確認ありがとうございます。以下の成果物を順番に生成します。
 
 【生成予定の成果物】
-✅ クラウドアーキテクチャ図（Mermaid形式）
-✅ IaCコード（Terraform / Bicep）
-✅ コスト見積もり
-✅ セキュリティ設計書
-✅ 運用設計書
-✅ 移行計画・ロードマップ（該当する場合）
+1. クラウドアーキテクチャ図（Mermaid形式）
+2. IaCコード（Terraform / Bicep）
+3. コスト見積もり
+4. セキュリティ設計書
+5. 運用設計書
+6. 移行計画・ロードマップ（該当する場合）
+
+**重要: 段階的生成方式**
+各ドキュメントを1つずつ生成・保存し、進捗を報告します。
+これにより、途中経過が見え、エラーが発生しても部分的な成果物が残ります。
 
 生成を開始してよろしいですか？
 👤 ユーザー: [回答待ち]
 ```
 
-完了後:
-```
-🤖 成果物の生成が完了しました！
+ユーザーが承認後、**各ドキュメントを順番に生成**:
 
-【生成ファイル】
-📄 ./design/cloud/architecture-diagram-[project-name]-20251111.md
+**Step 1: クラウドアーキテクチャ図**
+```
+🤖 [1/6] クラウドアーキテクチャ図（Mermaid形式）を生成しています...
+
+📝 ./design/cloud/architecture-diagram-[project-name]-20251112.md
+✅ 保存が完了しました
+
+[1/6] 完了。次のドキュメントに進みます。
+```
+
+**Step 2: IaCコード**
+```
+🤖 [2/6] IaCコード（Terraform / Bicep）を生成しています...
+
+📝 ./design/cloud/iac/terraform/main.tf (または Azure Bicep)
+✅ 保存が完了しました
+
+[2/6] 完了。次のドキュメントに進みます。
+```
+
+**Step 3: コスト見積もり**
+```
+🤖 [3/6] コスト見積もりを生成しています...
+
+📝 ./design/cloud/cost-estimation-20251112.md
+✅ 保存が完了しました
+
+[3/6] 完了。次のドキュメントに進みます。
+```
+
+**Step 4: セキュリティ設計書**
+```
+🤖 [4/6] セキュリティ設計書を生成しています...
+
+📝 ./design/cloud/security-design-20251112.md
+✅ 保存が完了しました
+
+[4/6] 完了。次のドキュメントに進みます。
+```
+
+**Step 5: 運用設計書**
+```
+🤖 [5/6] 運用設計書を生成しています...
+
+📝 ./design/cloud/operations-guide-20251112.md
+✅ 保存が完了しました
+
+[5/6] 完了。次のドキュメントに進みます。
+```
+
+**Step 6: 移行計画・ロードマップ**
+```
+🤖 [6/6] 移行計画・ロードマップを生成しています...
+
+📝 ./design/cloud/migration-roadmap-20251112.md
+✅ 保存が完了しました
+
+[6/6] 完了。
+```
+
+**最終ステップ: すべて完了**
+```
+🤖 ✨ すべての成果物の生成が完了しました！
+
+【生成ファイル一覧】（合計: 6ファイル）
+📄 ./design/cloud/architecture-diagram-[project-name]-20251112.md
 📄 ./design/cloud/iac/terraform/main.tf (または Azure Bicep)
-📄 ./design/cloud/cost-estimation-20251111.md
-📄 ./design/cloud/security-design-20251111.md
-📄 ./design/cloud/operations-guide-20251111.md
-📄 ./design/cloud/migration-roadmap-20251111.md (該当する場合)
+📄 ./design/cloud/cost-estimation-20251112.md
+📄 ./design/cloud/security-design-20251112.md
+📄 ./design/cloud/operations-guide-20251112.md
+📄 ./design/cloud/migration-roadmap-20251112.md (該当する場合)
 
 【次のステップ】
 1. 成果物を確認して、フィードバックをお願いします

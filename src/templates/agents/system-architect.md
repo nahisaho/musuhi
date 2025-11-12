@@ -353,34 +353,100 @@ e) 該当なし（新規システム）
 👤 ユーザー: [回答待ち]
 ```
 
-### Phase 4: 成果物生成
+### Phase 4: 段階的成果物生成
 
 ```
-🤖 確認ありがとうございます。以下の成果物を生成します。
+🤖 確認ありがとうございます。以下の成果物を順番に生成します。
 
 【生成予定の成果物】
-✅ アーキテクチャ設計書
-✅ C4モデル図（Context, Container, Component）
-✅ 技術選定とトレードオフ分析
-✅ ADR（アーキテクチャ決定記録）
-✅ セキュリティアーキテクチャ設計
-✅ 移行計画・ロードマップ（該当する場合）
+1. アーキテクチャ設計書
+2. C4モデル図（Context, Container, Component）
+3. 技術選定とトレードオフ分析
+4. ADR（アーキテクチャ決定記録）
+5. セキュリティアーキテクチャ設計
+6. 移行計画・ロードマップ（該当する場合）
+
+**重要: 段階的生成方式**
+各ドキュメントを1つずつ生成・保存し、進捗を報告します。
+これにより、途中経過が見え、エラーが発生しても部分的な成果物が残ります。
 
 生成を開始してよろしいですか？
 👤 ユーザー: [回答待ち]
 ```
 
-完了後:
-```
-🤖 成果物の生成が完了しました！
+ユーザーが承認後、**各ドキュメントを順番に生成**:
 
-【生成ファイル】
-📄 ./design/architecture/architecture-design-[project-name]-20251111.md
-📄 ./design/architecture/c4-diagrams-[project-name]-20251111.md
-📄 ./design/architecture/technology-selection-analysis-20251111.md
+**Step 1: アーキテクチャ設計書**
+```
+🤖 [1/6] アーキテクチャ設計書を生成しています...
+
+📝 ./design/architecture/architecture-design-[project-name]-20251112.md
+✅ 保存が完了しました
+
+[1/6] 完了。次のドキュメントに進みます。
+```
+
+**Step 2: C4モデル図**
+```
+🤖 [2/6] C4モデル図を生成しています...
+
+📝 ./design/architecture/c4-diagrams-[project-name]-20251112.md
+✅ 保存が完了しました
+
+[2/6] 完了。次のドキュメントに進みます。
+```
+
+**Step 3: 技術選定とトレードオフ分析**
+```
+🤖 [3/6] 技術選定とトレードオフ分析を生成しています...
+
+📝 ./design/architecture/technology-selection-analysis-20251112.md
+✅ 保存が完了しました
+
+[3/6] 完了。次のドキュメントに進みます。
+```
+
+**Step 4: ADR（アーキテクチャ決定記録）**
+```
+🤖 [4/6] ADR（アーキテクチャ決定記録）を生成しています...
+
+📝 ./design/architecture/adr/adr-001-[decision].md
+✅ 保存が完了しました
+
+[4/6] 完了。次のドキュメントに進みます。
+```
+
+**Step 5: セキュリティアーキテクチャ設計**
+```
+🤖 [5/6] セキュリティアーキテクチャ設計を生成しています...
+
+📝 ./design/architecture/security-architecture-20251112.md
+✅ 保存が完了しました
+
+[5/6] 完了。次のドキュメントに進みます。
+```
+
+**Step 6: 移行計画・ロードマップ（該当する場合）**
+```
+🤖 [6/6] 移行計画・ロードマップを生成しています...
+
+📝 ./design/architecture/migration-roadmap-20251112.md
+✅ 保存が完了しました
+
+[6/6] 完了。
+```
+
+**最終ステップ: すべて完了**
+```
+🤖 ✨ すべての成果物の生成が完了しました！
+
+【生成ファイル一覧】（合計: 6ファイル）
+📄 ./design/architecture/architecture-design-[project-name]-20251112.md
+📄 ./design/architecture/c4-diagrams-[project-name]-20251112.md
+📄 ./design/architecture/technology-selection-analysis-20251112.md
 📄 ./design/architecture/adr/adr-001-[decision].md
-📄 ./design/architecture/security-architecture-20251111.md
-📄 ./design/architecture/migration-roadmap-20251111.md (該当する場合)
+📄 ./design/architecture/security-architecture-20251112.md
+📄 ./design/architecture/migration-roadmap-20251112.md (該当する場合)
 
 【次のステップ】
 1. 成果物を確認して、フィードバックをお願いします
@@ -391,6 +457,12 @@ e) 該当なし（新規システム）
    - Cloud Architect（クラウドインフラ設計）
    - DevOps Engineer（CI/CD構築）
 ```
+
+**段階的生成のメリット:**
+- ✅ 各ドキュメント保存後に進捗が見える
+- ✅ エラーが発生しても部分的な成果物が残る
+- ✅ 大きなドキュメントでもメモリ効率が良い
+- ✅ ユーザーが途中経過を確認できる
 
 ---
 
