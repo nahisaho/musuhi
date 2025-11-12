@@ -540,6 +540,115 @@ ECサイトリニューアル
 - ✅ ユーザーが途中経過を確認できる
 - ✅ 英語版を先に確認してから日本語版を生成できる
 
+### Phase 5: Steering更新 (Project Memory Update)
+
+```
+🔄 プロジェクトメモリ（Steering）を更新します。
+
+このエージェントの成果物をsteeringファイルに反映し、他のエージェントが
+最新のプロジェクトコンテキストを参照できるようにします。
+```
+
+**更新対象ファイル:**
+- `steering/product.md` (英語版)
+- `steering/product.ja.md` (日本語版)
+
+**更新内容:**
+Project Managerの成果物から以下の情報を抽出し、`steering/product.md`に追記します：
+
+- **Project Timeline**: プロジェクトの期間、主要マイルストーン
+- **Milestones**: 重要な達成目標とその期限
+- **Key Risks**: 特定されたリスクと対策
+- **Stakeholders**: ステークホルダーとその役割
+- **Deliverables**: 主要な成果物とその期限
+- **Project Constraints**: 予算、リソース、技術的制約
+- **Success Criteria**: プロジェクト成功の基準
+
+**更新方法:**
+1. 既存の `steering/product.md` を読み込む（存在する場合）
+2. 今回の成果物から重要な情報を抽出
+3. product.md の「Project Management」セクションに追記または更新
+4. 英語版と日本語版の両方を更新
+
+```
+🤖 Steering更新中...
+
+📖 既存のsteering/product.mdを読み込んでいます...
+📝 プロジェクト管理情報を抽出しています...
+
+✍️  steering/product.mdを更新しています...
+✍️  steering/product.ja.mdを更新しています...
+
+✅ Steering更新完了
+
+プロジェクトメモリが更新されました。
+```
+
+**更新例:**
+```markdown
+## Project Management
+
+**Timeline**: March 1, 2025 - August 31, 2025 (6 months)
+
+**Key Milestones**:
+1. **M1: Requirements & Design Complete** - April 15, 2025
+   - SRS v1.0 finalized
+   - Architecture design approved
+   - UI/UX mockups completed
+
+2. **M2: MVP Development Complete** - June 15, 2025
+   - Core features implemented (user auth, product catalog, checkout)
+   - Unit tests at 80% coverage
+   - Staging deployment successful
+
+3. **M3: Beta Launch** - July 15, 2025
+   - 50 beta users onboarded
+   - Bug fixes based on feedback
+   - Performance optimization completed
+
+4. **M4: Production Launch** - August 31, 2025
+   - All features complete
+   - Security audit passed
+   - Production deployment with monitoring
+
+**Key Risks** (Top 5):
+1. **Third-party API Dependency** (High Risk, High Impact)
+   - Mitigation: Fallback mechanisms, caching, alternative providers
+
+2. **Resource Availability** (Medium Risk, High Impact)
+   - Mitigation: Cross-training, buffer time, contractor backup
+
+3. **Scope Creep** (Medium Risk, Medium Impact)
+   - Mitigation: Strict change control, prioritization framework
+
+4. **Technology Learning Curve** (Low Risk, Medium Impact)
+   - Mitigation: Training sessions, proof-of-concepts, pair programming
+
+5. **Security Vulnerabilities** (Low Risk, High Impact)
+   - Mitigation: Regular security audits, automated scanning, penetration testing
+
+**Stakeholders**:
+- **Product Owner**: Jane Smith (jane@company.com) - Final decision maker
+- **Development Team**: 5 engineers (2 frontend, 2 backend, 1 full-stack)
+- **QA Team**: 2 QA engineers
+- **DevOps**: 1 DevOps engineer (shared resource)
+- **External Stakeholders**: Payment gateway vendor, hosting provider
+
+**Project Constraints**:
+- **Budget**: $150,000 total (development, infrastructure, third-party services)
+- **Team Size**: 8-10 people (including part-time resources)
+- **Technology**: Must use TypeScript, React, Node.js (existing team expertise)
+- **Compliance**: GDPR compliance required for EU customers
+
+**Success Criteria**:
+1. Launch by August 31, 2025 with all MVP features
+2. 95% test coverage for critical paths
+3. Page load time < 2 seconds (95th percentile)
+4. Zero critical security vulnerabilities
+5. 99.9% uptime SLA post-launch
+6. Positive user feedback (NPS > 50)
+```
+
 ---
 
 ## 5. Templates

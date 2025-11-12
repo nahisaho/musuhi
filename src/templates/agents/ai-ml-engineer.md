@@ -2702,6 +2702,105 @@ AI/ML開発に関する成果物をお渡ししました。
 
 ---
 
+### Phase 4.5: Steering更新 (Project Memory Update)
+
+```
+🔄 プロジェクトメモリ（Steering）を更新します。
+
+このエージェントの成果物をsteeringファイルに反映し、他のエージェントが
+最新のプロジェクトコンテキストを参照できるようにします。
+```
+
+**更新対象ファイル:**
+- `steering/tech.md` (英語版)
+- `steering/tech.ja.md` (日本語版)
+
+**更新内容:**
+- ML frameworks and libraries (TensorFlow, PyTorch, scikit-learn versions)
+- Model serving infrastructure (TensorFlow Serving, MLflow, TorchServe)
+- Data pipeline tools and frameworks (Pandas, Dask, Spark)
+- ML experimentation and tracking tools (MLflow, Weights & Biases)
+- Model deployment strategy (Docker, Kubernetes, cloud services)
+- Feature store and data versioning (DVC, Feature Store)
+- ML monitoring and observability tools
+
+**更新方法:**
+1. 既存の `steering/tech.md` を読み込む（存在する場合）
+2. 今回の成果物から重要な情報を抽出
+3. tech.md の該当セクションに追記または更新
+4. 英語版と日本語版の両方を更新
+
+```
+🤖 Steering更新中...
+
+📖 既存のsteering/tech.mdを読み込んでいます...
+📝 ML/AIツールとフレームワーク情報を抽出しています...
+
+✍️  steering/tech.mdを更新しています...
+✍️  steering/tech.ja.mdを更新しています...
+
+✅ Steering更新完了
+
+プロジェクトメモリが更新されました。
+```
+
+**更新例:**
+```markdown
+## ML/AI Stack
+
+### ML Frameworks
+- **Deep Learning**:
+  - PyTorch 2.1.0 (primary framework)
+  - TensorFlow 2.14.0 (legacy models)
+- **Traditional ML**:
+  - scikit-learn 1.3.2
+  - XGBoost 2.0.1
+  - LightGBM 4.1.0
+- **NLP**:
+  - Hugging Face Transformers 4.35.0
+  - spaCy 3.7.0
+- **Computer Vision**:
+  - torchvision 0.16.0
+  - OpenCV 4.8.1
+
+### Data Processing
+- **Data Manipulation**: Pandas 2.1.3, NumPy 1.26.2
+- **Large-scale Processing**: Dask 2023.12.0, Apache Spark 3.5.0
+- **Feature Engineering**: Feature-engine 1.6.2
+
+### MLOps Tools
+- **Experiment Tracking**: MLflow 2.9.0
+- **Model Registry**: MLflow Model Registry
+- **Model Versioning**: DVC 3.33.0
+- **Feature Store**: Feast 0.35.0
+
+### Model Serving
+- **Deployment**:
+  - TorchServe 0.9.0 (PyTorch models)
+  - TensorFlow Serving 2.14.0 (TensorFlow models)
+  - FastAPI 0.104.1 (custom inference API)
+- **Container Platform**: Docker 24.0.7, Kubernetes 1.28
+- **Cloud Services**: AWS SageMaker (model hosting)
+
+### ML Pipeline
+- **Orchestration**: Apache Airflow 2.7.3
+- **Workflow**: Kubeflow Pipelines 2.0.3
+- **CI/CD**: GitHub Actions with ML-specific workflows
+
+### Monitoring and Observability
+- **Model Monitoring**: Evidently AI 0.4.9
+- **Data Drift Detection**: Alibi Detect 0.12.1
+- **Metrics Collection**: Prometheus + Grafana
+- **Logging**: CloudWatch Logs
+
+### Development Environment
+- **Notebooks**: JupyterLab 4.0.9
+- **GPU Support**: CUDA 12.1, cuDNN 8.9.0
+- **Environment Management**: Conda 23.10.0, Poetry 1.7.1
+```
+
+---
+
 ## 5. Best Practices
 
 # ベストプラクティス

@@ -873,6 +873,84 @@ npm update lodash@^4.17.21
 👤 ユーザー: [回答待ち]
 ```
 
+### Phase6: Steering更新 (Project Memory Update)
+
+```
+🔄 プロジェクトメモリ（Steering）を更新します。
+
+このエージェントの成果物をsteeringファイルに反映し、他のエージェントが
+最新のプロジェクトコンテキストを参照できるようにします。
+```
+
+**更新対象ファイル:**
+- `steering/tech.md` (英語版)
+- `steering/tech.ja.md` (日本語版)
+
+**更新内容:**
+- **Security Tools**: 使用したセキュリティツール（SAST, DAST, dependency scanners）
+- **Vulnerability Scanners**: Trivy, OWASP ZAP, Snyk等のスキャナー
+- **Compliance Standards**: 準拠している標準（OWASP Top 10, CWE, GDPR等）
+- **Security Practices**: 実装されているセキュリティプラクティス
+- **Known Vulnerabilities**: 検出された脆弱性と対策状況
+
+**更新方法:**
+1. 既存の `steering/tech.md` を読み込む（存在する場合）
+2. 監査結果からセキュリティツールと対策情報を抽出
+3. tech.md の「Security」セクションに追記または更新
+4. 英語版と日本語版の両方を更新
+
+```
+🤖 Steering更新中...
+
+📖 既存のsteering/tech.mdを読み込んでいます...
+📝 セキュリティ情報を抽出しています...
+   - セキュリティツール: OWASP ZAP, Trivy, Snyk
+   - 準拠標準: OWASP Top 10, CWE Top 25
+   - 検出された脆弱性: 3件（すべて修正済み）
+
+✍️  steering/tech.mdを更新しています...
+✍️  steering/tech.ja.mdを更新しています...
+
+✅ Steering更新完了
+
+プロジェクトメモリが更新されました。
+他のエージェントがこのセキュリティ情報を参照できるようになりました。
+```
+
+**更新例:**
+
+```markdown
+## Security (Updated: 2025-01-12)
+
+### Security Tools
+- **SAST**: SonarQube, ESLint security plugins
+- **DAST**: OWASP ZAP automated scans
+- **Dependency Scanner**: Snyk, npm audit
+- **Container Scanner**: Trivy
+- **Secret Scanner**: GitGuardian
+
+### Compliance & Standards
+- **OWASP Top 10**: All mitigated
+- **CWE Top 25**: Addressed in code review
+- **GDPR**: Data protection implemented
+- **SOC 2**: Compliance in progress
+
+### Security Practices
+- **Authentication**: OAuth 2.0 + JWT with refresh tokens
+- **Authorization**: RBAC (Role-Based Access Control)
+- **Encryption**: TLS 1.3 for transport, AES-256 for data at rest
+- **Input Validation**: Zod schema validation on all endpoints
+- **CSRF Protection**: SameSite cookies + CSRF tokens
+- **XSS Protection**: Content Security Policy (CSP) enabled
+- **SQL Injection**: Parameterized queries with ORM
+
+### Vulnerability Status
+- **Critical**: 0 open
+- **High**: 0 open
+- **Medium**: 0 open
+- **Low**: 2 open (accepted risk)
+```
+
 ---
 
 ## 5. セキュリティ監査チェックリスト

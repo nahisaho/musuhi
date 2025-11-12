@@ -527,6 +527,116 @@ Coverage Summary:
 👤 ユーザー: [回答待ち]
 ```
 
+### Phase 6: Steering更新 (Project Memory Update)
+
+```
+🔄 プロジェクトメモリ（Steering）を更新します。
+
+このエージェントの成果物をsteeringファイルに反映し、他のエージェントが
+最新のプロジェクトコンテキストを参照できるようにします。
+```
+
+**更新対象ファイル:**
+- `steering/tech.md` (英語版)
+- `steering/tech.ja.md` (日本語版)
+
+**更新内容:**
+Test Engineerの成果物から以下の情報を抽出し、`steering/tech.md`に追記します：
+
+- **Testing Frameworks**: 使用するテストフレームワーク（Jest, Vitest, Pytest等）
+- **Test Types**: 実装するテストの種類（Unit, Integration, E2E）
+- **Test Coverage Tools**: カバレッジ測定ツール、目標カバレッジ率
+- **E2E Testing**: E2Eテストツール（Cypress, Playwright, Selenium等）
+- **Test Data Strategy**: テストデータ管理方法（fixtures, mocks, factories）
+- **CI Integration**: CI/CDパイプラインでのテスト実行設定
+
+**更新方法:**
+1. 既存の `steering/tech.md` を読み込む（存在する場合）
+2. 今回の成果物から重要な情報を抽出
+3. tech.md の「Testing」セクションに追記または更新
+4. 英語版と日本語版の両方を更新
+
+```
+🤖 Steering更新中...
+
+📖 既存のsteering/tech.mdを読み込んでいます...
+📝 テスト戦略情報を抽出しています...
+
+✍️  steering/tech.mdを更新しています...
+✍️  steering/tech.ja.mdを更新しています...
+
+✅ Steering更新完了
+
+プロジェクトメモリが更新されました。
+```
+
+**更新例:**
+```markdown
+## Testing Strategy
+
+**Testing Frameworks**:
+- **Frontend**: Vitest + React Testing Library
+  - **Why Vitest**: Fast, ESM-native, compatible with Vite build
+  - **React Testing Library**: User-centric testing approach
+- **Backend**: Jest (Node.js), Pytest (Python)
+- **E2E**: Playwright (cross-browser support)
+
+**Test Types & Coverage**:
+1. **Unit Tests** (Target: 80% coverage)
+   - Services, hooks, utilities, pure functions
+   - Fast execution (<5s for entire suite)
+   - Co-located with implementation files (`.test.ts`)
+
+2. **Integration Tests** (Target: 70% coverage)
+   - API endpoints, database operations
+   - Test with real database (Docker testcontainers)
+   - Test file location: `tests/integration/`
+
+3. **E2E Tests** (Critical user flows only)
+   - Login/logout, checkout, payment
+   - Run against staging environment
+   - Test file location: `e2e/`
+   - Execution time: ~5 minutes
+
+**Test Coverage**:
+- **Tool**: c8 (Vitest built-in)
+- **Minimum Threshold**: 80% statements, 75% branches
+- **CI Enforcement**: Build fails if below threshold
+- **Reports**: HTML coverage report in `coverage/` (gitignored)
+- **Exclusions**: Config files, test files, generated code
+
+**Test Data Management**:
+- **Fixtures**: Predefined test data in `tests/fixtures/`
+  - `users.fixture.ts` - User test data
+  - `products.fixture.ts` - Product test data
+- **Factories**: Dynamic test data generation (using `@faker-js/faker`)
+- **Mocks**: API mocks in `tests/mocks/` (using MSW - Mock Service Worker)
+- **Database**: Isolated test database (reset between tests)
+
+**E2E Testing**:
+- **Tool**: Playwright v1.40+
+- **Browsers**: Chromium, Firefox, WebKit (parallel execution)
+- **Configuration**: `playwright.config.ts`
+- **Test Execution**:
+  - Local development: `npm run test:e2e`
+  - CI: Run on every PR to `main`
+  - Staging: Nightly runs against staging environment
+- **Test Artifacts**: Screenshots/videos on failure (stored in `test-results/`)
+
+**CI Integration**:
+- **Unit Tests**: Run on every commit (fast feedback)
+- **Integration Tests**: Run on PR creation/update
+- **E2E Tests**: Run on PR to `main` (manual trigger option)
+- **Parallel Execution**: Split tests across 4 CI workers
+- **Flaky Test Handling**: Retry failed tests 2 times, report flaky tests
+
+**Testing Standards**:
+- **Naming**: `describe('ComponentName', () => { it('should do X when Y', ...) })`
+- **AAA Pattern**: Arrange → Act → Assert
+- **One Assertion Per Test**: Preferred (exceptions allowed for related assertions)
+- **No Test Interdependencies**: Each test must run independently
+```
+
 ---
 
 ## 5. テストコードテンプレート

@@ -526,6 +526,88 @@ f) すべて
 
 ---
 
+### Phase 5: Steering更新 (Project Memory Update)
+
+```
+🔄 プロジェクトメモリ（Steering）を更新します。
+
+このエージェントの成果物をsteeringファイルに反映し、他のエージェントが
+最新のプロジェクトコンテキストを参照できるようにします。
+```
+
+**更新対象ファイル:**
+- `steering/tech.md` (英語版)
+- `steering/tech.ja.md` (日本語版)
+
+**更新内容:**
+- **API Stack**: REST/GraphQL、OpenAPI バージョン、API Gateway等
+- **Authentication & Authorization**: OAuth 2.0, JWT, API Key等の認証方式
+- **API Tools**: Postman, Swagger UI, API testing frameworks
+- **API Standards**: RESTful design principles, GraphQL schema guidelines
+- **Rate Limiting & Throttling**: API制限の設定
+
+**更新方法:**
+1. 既存の `steering/tech.md` を読み込む（存在する場合）
+2. 今回設計したAPIから技術スタック情報を抽出
+3. tech.md の「API」セクションに追記または更新
+4. 英語版と日本語版の両方を更新
+
+```
+🤖 Steering更新中...
+
+📖 既存のsteering/tech.mdを読み込んでいます...
+📝 API技術情報を抽出しています...
+   - API Style: REST API (OpenAPI 3.0)
+   - Authentication: OAuth 2.0 + JWT
+   - API Gateway: なし（直接通信）
+
+✍️  steering/tech.mdを更新しています...
+✍️  steering/tech.ja.mdを更新しています...
+
+✅ Steering更新完了
+
+プロジェクトメモリが更新されました。
+他のエージェント（Frontend Developer, Test Engineer等）が
+このAPI情報を参照できるようになりました。
+```
+
+**更新例:**
+
+```markdown
+## API Stack (Updated: 2025-01-12)
+
+### API Design
+- **Style**: RESTful API
+- **Specification**: OpenAPI 3.0.3
+- **Documentation**: Swagger UI + ReDoc
+- **Versioning**: URI versioning (/api/v1/)
+
+### Authentication & Authorization
+- **Method**: OAuth 2.0 (Authorization Code Flow)
+- **Token**: JWT (Access Token + Refresh Token)
+- **Token Storage**: HttpOnly Cookies
+- **Expiration**: Access Token 15min, Refresh Token 7days
+
+### API Tools
+- **Development**: Postman Collections
+- **Testing**: REST Assured, Supertest
+- **Mocking**: MSW (Mock Service Worker)
+- **Monitoring**: API Gateway logs + CloudWatch
+
+### API Standards
+- **HTTP Methods**: GET (read), POST (create), PUT (update), DELETE (delete)
+- **Status Codes**: 2xx (success), 4xx (client error), 5xx (server error)
+- **Response Format**: JSON (application/json)
+- **Error Format**: RFC 7807 (Problem Details for HTTP APIs)
+
+### Rate Limiting
+- **Default**: 100 requests/minute per user
+- **Authenticated**: 1000 requests/minute
+- **Strategy**: Token Bucket Algorithm
+```
+
+---
+
 ## 6. OpenAPI Specification Template
 
 ### 5.1 Complete OpenAPI 3.1 Example

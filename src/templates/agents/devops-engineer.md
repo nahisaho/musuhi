@@ -448,6 +448,123 @@ groups:
 👤 ユーザー: [ありがとうございました]
 ```
 
+### Phase 6: Steering更新 (Project Memory Update)
+
+```
+🔄 プロジェクトメモリ（Steering）を更新します。
+
+このエージェントの成果物をsteeringファイルに反映し、他のエージェントが
+最新のプロジェクトコンテキストを参照できるようにします。
+```
+
+**更新対象ファイル:**
+- `steering/tech.md` (英語版)
+- `steering/tech.ja.md` (日本語版)
+
+**更新内容:**
+DevOps Engineerの成果物から以下の情報を抽出し、`steering/tech.md`に追記します：
+
+- **CI/CD Pipeline**: 使用するCI/CDツール（GitHub Actions, GitLab CI, Jenkins等）
+- **Deployment Tools**: デプロイツール・戦略（Blue-Green, Canary, Rolling等）
+- **Monitoring Tools**: 監視ツール（Prometheus, Grafana, Datadog等）
+- **Containerization**: Docker設定、Kubernetesバージョン、Helm charts
+- **Log Aggregation**: ログ集約ツール（ELK Stack, Loki等）
+- **Alert Configuration**: アラート設定（Slack, PagerDuty等）
+- **Infrastructure Automation**: Terraform, Ansible等のバージョンと設定
+
+**更新方法:**
+1. 既存の `steering/tech.md` を読み込む（存在する場合）
+2. 今回の成果物から重要な情報を抽出
+3. tech.md の「DevOps & Operations」セクションに追記または更新
+4. 英語版と日本語版の両方を更新
+
+```
+🤖 Steering更新中...
+
+📖 既存のsteering/tech.mdを読み込んでいます...
+📝 DevOps設定情報を抽出しています...
+
+✍️  steering/tech.mdを更新しています...
+✍️  steering/tech.ja.mdを更新しています...
+
+✅ Steering更新完了
+
+プロジェクトメモリが更新されました。
+```
+
+**更新例:**
+```markdown
+## DevOps & Operations
+
+**CI/CD Pipeline**:
+- **Platform**: GitHub Actions
+- **Workflow File**: `.github/workflows/ci-cd.yml`
+- **Trigger Events**: Push to `main`, Pull Request
+- **Build Steps**: Lint → Test → Build → Security Scan → Deploy
+- **Test Coverage**: Minimum 80% required to pass
+- **Deployment Strategy**: Blue-Green deployment with automatic rollback
+
+**Containerization**:
+- **Docker**: Version 24.0+
+  - **Base Images**: `node:20-alpine` (frontend/backend), `nginx:alpine` (static)
+  - **Multi-stage Builds**: Yes (builder stage → production stage)
+  - **Registry**: AWS ECR (Elastic Container Registry)
+- **Kubernetes**: v1.28
+  - **Cluster**: AWS EKS (3 nodes, t3.medium)
+  - **Namespaces**: `production`, `staging`, `development`
+  - **Ingress**: NGINX Ingress Controller
+  - **Auto-scaling**: HPA (2-10 pods based on CPU >70%)
+
+**Monitoring & Observability**:
+- **Metrics**: Prometheus + Grafana
+  - **Retention**: 30 days
+  - **Dashboards**: Application metrics, infrastructure metrics, business KPIs
+  - **Exporters**: Node Exporter, Kube State Metrics
+- **Logs**: Loki + Promtail
+  - **Retention**: 14 days
+  - **Log Levels**: ERROR, WARN, INFO, DEBUG
+- **APM**: OpenTelemetry (distributed tracing)
+- **Uptime Monitoring**: UptimeRobot (1-minute intervals)
+
+**Alerting**:
+- **Alert Manager**: Prometheus AlertManager
+- **Notification Channels**:
+  - Critical: PagerDuty (oncall rotation)
+  - Warning: Slack #alerts
+  - Info: Email to team@company.com
+- **Key Alerts**:
+  - Pod restart >3 times in 5min
+  - CPU usage >80% for 5min
+  - Memory usage >90% for 3min
+  - Error rate >5% for 5min
+  - Response time p95 >2s for 5min
+
+**Infrastructure as Code**:
+- **Terraform**: v1.6+
+  - **State Backend**: S3 + DynamoDB locking
+  - **Workspaces**: production, staging, development
+  - **Modules**: Custom modules in `terraform/modules/`
+- **Configuration Management**: Ansible 2.15+ (for VM configuration)
+
+**Deployment Process**:
+1. Developer pushes to `main` branch
+2. GitHub Actions triggers CI pipeline
+3. Run tests, linting, security scans
+4. Build Docker image, tag with git SHA
+5. Push to ECR
+6. Update Kubernetes manifests
+7. Deploy to staging (automatic)
+8. Run smoke tests
+9. Deploy to production (manual approval)
+10. Post-deployment health checks
+
+**Backup & DR**:
+- **Database Backups**: Daily automated backups, 7-day retention
+- **Kubernetes State**: etcd backups every 6 hours
+- **Disaster Recovery**: Cross-region replication (ap-northeast-1 → ap-southeast-1)
+- **RPO**: 1 hour, **RTO**: 30 minutes
+```
+
 ---
 
 ## 5. File Output Requirements

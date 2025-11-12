@@ -3206,6 +3206,108 @@ log "原因を分析し、再度マイグレーション計画を見直してく
 
 ---
 
+### Phase 4.5: Steering更新 (Project Memory Update)
+
+```
+🔄 プロジェクトメモリ（Steering）を更新します。
+
+このエージェントの成果物をsteeringファイルに反映し、他のエージェントが
+最新のプロジェクトコンテキストを参照できるようにします。
+```
+
+**更新対象ファイル:**
+- `steering/tech.md` (英語版)
+- `steering/tech.ja.md` (日本語版)
+
+**更新内容:**
+- Database configuration (DBMS type, version, connection settings)
+- Backup and recovery strategy (backup type, schedule, retention policy)
+- Performance tuning settings (indexes, query optimization, parameter tuning)
+- High availability setup (replication configuration, failover strategy)
+- Database monitoring tools and alert thresholds
+- Security configurations (authentication, encryption, access control)
+
+**更新方法:**
+1. 既存の `steering/tech.md` を読み込む（存在する場合）
+2. 今回の成果物から重要な情報を抽出
+3. tech.md の該当セクションに追記または更新
+4. 英語版と日本語版の両方を更新
+
+```
+🤖 Steering更新中...
+
+📖 既存のsteering/tech.mdを読み込んでいます...
+📝 データベース設定と構成情報を抽出しています...
+
+✍️  steering/tech.mdを更新しています...
+✍️  steering/tech.ja.mdを更新しています...
+
+✅ Steering更新完了
+
+プロジェクトメモリが更新されました。
+```
+
+**更新例:**
+```markdown
+## Database Configuration
+
+### DBMS Information
+- **Database System**: PostgreSQL 15.3
+- **Deployment**: AWS RDS (Multi-AZ)
+- **Instance Type**: db.r6g.2xlarge
+- **Storage**: 500GB gp3 (3000 IOPS)
+
+### Connection Settings
+- **Endpoint**: myapp-prod.xxxxx.us-east-1.rds.amazonaws.com
+- **Port**: 5432
+- **Connection Pool**: 20 connections (max)
+- **SSL Mode**: require
+
+### Backup Strategy
+- **Backup Type**: Automated snapshots + WAL archiving
+- **Schedule**: Daily snapshots at 3:00 AM UTC
+- **Retention**: 30 days for snapshots, 7 days for WAL
+- **Recovery**: Point-in-Time Recovery (PITR) enabled
+- **RTO**: < 1 hour
+- **RPO**: < 5 minutes
+
+### Performance Tuning
+- **Key Indexes**:
+  - users(email) - UNIQUE BTREE
+  - orders(user_id, created_at) - BTREE
+  - products(category_id, price) - BTREE
+- **Query Optimization**: Slow query log enabled (> 500ms)
+- **Parameters**:
+  - shared_buffers: 16GB
+  - effective_cache_size: 48GB
+  - work_mem: 64MB
+  - maintenance_work_mem: 2GB
+
+### High Availability
+- **Replication**: Multi-AZ with synchronous replication
+- **Failover**: Automatic failover (< 2 minutes)
+- **Read Replicas**: 2 replicas in different AZs
+- **Load Balancing**: Read traffic distributed across replicas
+
+### Monitoring
+- **Tools**: CloudWatch, pgBadger, pg_stat_statements
+- **Key Metrics**:
+  - Connection count (alert > 80%)
+  - CPU utilization (alert > 80%)
+  - Disk space (alert < 20% free)
+  - Replication lag (alert > 10 seconds)
+
+### Security
+- **Authentication**: IAM authentication enabled
+- **Encryption**:
+  - At rest: AES-256
+  - In transit: TLS 1.2+
+- **Access Control**: Principle of least privilege
+- **Audit Logging**: Enabled for all DDL/DML operations
+```
+
+---
+
 ## 5. Best Practices
 
 # ベストプラクティス

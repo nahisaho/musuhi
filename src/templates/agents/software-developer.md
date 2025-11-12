@@ -317,6 +317,141 @@ src/
 👤 ユーザー: [回答待ち]
 ```
 
+### Phase 6: Steering更新 (Project Memory Update)
+
+```
+🔄 プロジェクトメモリ（Steering）を更新します。
+
+このエージェントの成果物をsteeringファイルに反映し、他のエージェントが
+最新のプロジェクトコンテキストを参照できるようにします。
+```
+
+**更新対象ファイル:**
+- `steering/structure.md` (英語版)
+- `steering/structure.ja.md` (日本語版)
+
+**更新内容:**
+Software Developerの成果物から以下の情報を抽出し、`steering/structure.md`に追記します：
+
+- **Coding Standards**: コーディング規約（命名規則、フォーマット、コメントルール）
+- **Module Structure**: 実装したモジュール・コンポーネントの構成
+- **Implemented Features**: 実装済み機能の一覧
+- **Code Organization**: ディレクトリ構造、レイヤー分離（services, hooks, components等）
+- **Error Handling Patterns**: エラーハンドリングのパターン
+- **State Management**: 状態管理の実装方法（Context, Redux, Zustand等）
+
+**更新方法:**
+1. 既存の `steering/structure.md` を読み込む（存在する場合）
+2. 今回の成果物から重要な情報を抽出
+3. structure.md の「Code Structure」セクションに追記または更新
+4. 英語版と日本語版の両方を更新
+
+```
+🤖 Steering更新中...
+
+📖 既存のsteering/structure.mdを読み込んでいます...
+📝 実装コード情報を抽出しています...
+
+✍️  steering/structure.mdを更新しています...
+✍️  steering/structure.ja.mdを更新しています...
+
+✅ Steering更新完了
+
+プロジェクトメモリが更新されました。
+```
+
+**更新例:**
+```markdown
+## Code Structure
+
+**Project Structure**:
+```
+src/
+├── features/          # Feature-based organization
+│   ├── user-auth/     # User authentication feature
+│   │   ├── types/     # TypeScript type definitions
+│   │   ├── services/  # Business logic & API calls
+│   │   ├── hooks/     # React custom hooks
+│   │   └── components/# UI components
+│   ├── products/      # Product catalog feature
+│   └── cart/          # Shopping cart feature
+├── shared/            # Shared utilities & components
+│   ├── components/    # Reusable UI components
+│   ├── hooks/         # Shared custom hooks
+│   ├── utils/         # Utility functions
+│   └── types/         # Shared type definitions
+├── api/               # Backend API routes (Node.js)
+│   ├── routes/        # Express routes
+│   ├── middleware/    # Custom middleware
+│   └── controllers/   # Route controllers
+└── config/            # Configuration files
+```
+
+**Coding Standards**:
+- **Naming Conventions**:
+  - Components: PascalCase (e.g., `LoginForm.tsx`)
+  - Hooks: camelCase with "use" prefix (e.g., `useAuth.ts`)
+  - Services: camelCase with "Service" suffix (e.g., `authService.ts`)
+  - Types/Interfaces: PascalCase (e.g., `User`, `AuthResponse`)
+  - Constants: UPPER_SNAKE_CASE (e.g., `API_BASE_URL`)
+
+- **File Organization**:
+  - Each feature has its own directory under `features/`
+  - Co-locate tests with implementation files (`.test.ts` suffix)
+  - Group by feature, not by file type (avoid `components/`, `services/` at root)
+
+- **Code Style**:
+  - **Formatter**: Prettier (config: `.prettierrc`)
+  - **Linter**: ESLint (config: `eslintrc.js`)
+  - **Max Line Length**: 100 characters
+  - **Indentation**: 2 spaces (no tabs)
+
+**Implemented Features**:
+1. **User Authentication** (`features/user-auth/`)
+   - Login with email/password
+   - Token-based auth (JWT)
+   - Auto-refresh on token expiry
+   - Logout functionality
+
+2. **Product Catalog** (`features/products/`)
+   - Product listing with pagination
+   - Product detail view
+   - Search & filter
+   - Category browsing
+
+**Error Handling Patterns**:
+- **Service Layer**: Throws typed errors (e.g., `AuthenticationError`, `ValidationError`)
+- **Component Layer**: Catches errors and displays user-friendly messages
+- **API Routes**: Centralized error handler middleware
+- **Example**:
+  ```typescript
+  try {
+    const user = await authService.login(email, password);
+    onSuccess(user);
+  } catch (error) {
+    if (error instanceof AuthenticationError) {
+      setError('Invalid credentials');
+    } else if (error instanceof NetworkError) {
+      setError('Network error. Please try again.');
+    } else {
+      setError('An unexpected error occurred');
+    }
+  }
+  ```
+
+**State Management**:
+- **Local State**: React `useState` for component-specific state
+- **Shared State**: Context API for auth state (user, token)
+- **Server State**: React Query for data fetching & caching (products, orders)
+- **Form State**: React Hook Form for complex forms
+
+**Testing Standards**:
+- **Unit Tests**: 80% minimum coverage for services & hooks
+- **Component Tests**: React Testing Library for UI testing
+- **Test Organization**: Co-located with implementation (`.test.ts` suffix)
+- **Test Naming**: `describe('ComponentName', () => { it('should do something', ...) })`
+```
+
 ---
 
 ## コーディングテンプレート

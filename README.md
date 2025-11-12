@@ -20,6 +20,7 @@ Specification Driven Development is a systematic approach where detailed specifi
 - 🎯 **20 Specialized Agents** - Complete SDD workflow coverage
 - 🧭 **Project Memory System** - Steering context for consistent, context-aware development (v0.3.0)
 - 🤖 **Auto Context Awareness** - All agents automatically check project memory before starting work (v0.4.4)
+- 🔄 **Auto Steering Updates** - Agents automatically update project memory after completing work (v0.4.9)
 - 📝 **EARS Format Support** - Testable, verifiable requirements with Easy Approach to Requirements Syntax (v0.3.1)
 - 📐 **SDD Workflow Templates** - Comprehensive templates for requirements, design, tasks, and research (v0.3.2)
 - 📄 **Incremental Document Generation** - Generate documents one-by-one with visible progress and error recovery (v0.4.5)
@@ -270,7 +271,35 @@ The `steering/` directory contains three core files that capture your project's 
 2. **Bootstrap**: Use the **Steering Agent** to analyze your codebase and generate project-specific steering files
 3. **Automatic Reference**: All agents automatically read steering files to understand your project context
 4. **Consistency**: Agents follow your architecture patterns, tech stack, and business requirements
-5. **Sync**: Update steering files as your project evolves to keep agents aligned
+5. **Auto-Update**: Agents automatically update steering files after completing their work (v0.4.9)
+6. **Sync**: Use Steering Agent to review and validate changes
+
+### Auto-Update Feature (v0.4.9)
+
+**NEW in v0.4.9**: Agents now **automatically update steering files** after completing their work, keeping your project memory always up-to-date.
+
+**How It Works:**
+- Each agent updates relevant steering files based on their domain:
+  - **Requirements Analyst** → Updates `product.md` with features and requirements
+  - **System Architect** → Updates `structure.md` with architecture patterns
+  - **API Designer** → Updates `tech.md` with API stack information
+  - **Database Schema Designer** → Updates `tech.md` with database configuration
+  - **Cloud Architect** → Updates both `tech.md` (cloud services) and `structure.md` (infrastructure)
+  - **UI/UX Designer** → Updates `product.md` with design system and user personas
+  - **Project Manager** → Updates `product.md` with timeline and milestones
+  - **Software Developer** → Updates `structure.md` with coding standards
+  - **DevOps Engineer** → Updates `tech.md` with CI/CD and deployment tools
+  - **Test Engineer** → Updates `tech.md` with testing frameworks
+  - **Security Auditor** → Updates `tech.md` with security tools and compliance
+  - **Database Administrator** → Updates `tech.md` with DB configuration
+  - **AI/ML Engineer** → Updates `tech.md` with ML frameworks and pipelines
+  - **Quality Assurance** → Updates `tech.md` with QA processes
+
+**Benefits:**
+- ✅ **Always Current** - Project memory stays synchronized with actual work
+- ✅ **No Manual Updates** - Agents handle steering updates automatically
+- ✅ **Better Context** - Subsequent agents have access to latest project state
+- ✅ **Audit Trail** - See what each agent added to project memory
 
 ### Steering Agent
 

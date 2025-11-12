@@ -849,6 +849,111 @@ design/ui/
 - ✅ ユーザーが途中経過を確認できる
 - ✅ 英語版を先に確認してから日本語版を生成できる
 
+### Phase 6: Steering更新 (Project Memory Update)
+
+```
+🔄 プロジェクトメモリ（Steering）を更新します。
+
+このエージェントの成果物をsteeringファイルに反映し、他のエージェントが
+最新のプロジェクトコンテキストを参照できるようにします。
+```
+
+**更新対象ファイル:**
+- `steering/product.md` (英語版)
+- `steering/product.ja.md` (日本語版)
+
+**更新内容:**
+UI/UX Designerの成果物から以下の情報を抽出し、`steering/product.md`に追記します：
+
+- **UI/UX Principles**: 採用しているデザイン原則（Material Design, Apple HIG等）
+- **Design System**: 使用しているデザインシステム、コンポーネントライブラリ
+- **Component Library**: Tailwind CSS, MUI, Chakra UI, shadcn/ui等
+- **Accessibility Standards**: WCAG 2.1 AA/AAA準拠レベル、対応機能
+- **User Personas**: ターゲットユーザーのペルソナ定義
+- **Design Tools**: Figma, Adobe XD等の使用ツール
+- **Responsive Strategy**: ブレークポイント、モバイルファーストか否か
+
+**更新方法:**
+1. 既存の `steering/product.md` を読み込む（存在する場合）
+2. 今回の成果物から重要な情報を抽出
+3. product.md の「Design & UX」セクションに追記または更新
+4. 英語版と日本語版の両方を更新
+
+```
+🤖 Steering更新中...
+
+📖 既存のsteering/product.mdを読み込んでいます...
+📝 UI/UXデザイン情報を抽出しています...
+
+✍️  steering/product.mdを更新しています...
+✍️  steering/product.ja.mdを更新しています...
+
+✅ Steering更新完了
+
+プロジェクトメモリが更新されました。
+```
+
+**更新例:**
+```markdown
+## Design & UX
+
+**Design Philosophy**: User-Centered Design (UCD)
+- **Principles**: Simplicity, Consistency, Accessibility, Feedback, Efficiency
+- **Inspiration**: Apple HIG for intuitive interactions, Material Design for visual hierarchy
+
+**User Personas**:
+
+**Primary Persona**: Yuki Tanaka (田中 由紀)
+- **Age**: 32, Marketing Professional
+- **Goals**: Quick product discovery, seamless checkout, saved preferences
+- **Devices**: iPhone 14 Pro (primary), MacBook Pro (secondary)
+- **Pain Points**: Complex navigation, slow load times, unclear CTAs
+
+**Secondary Persona**: Taro Sato (佐藤 太郎)
+- **Age**: 45, Small Business Owner
+- **Goals**: Detailed product comparison, bulk ordering, invoice management
+- **Devices**: Windows PC (primary), Android tablet (secondary)
+- **Pain Points**: Lack of comparison features, limited filtering options
+
+**Design System**:
+- **Component Library**: shadcn/ui + Tailwind CSS
+- **Color Palette**:
+  - Primary: Blue 500 (#3B82F6)
+  - Secondary: Green 500 (#10B981)
+  - Neutrals: Gray 50-900
+- **Typography**: Inter (Latin), Noto Sans JP (Japanese)
+- **Spacing System**: 8px base unit (Tailwind's default scale)
+- **Border Radius**: 8px (rounded-lg) for cards, 12px (rounded-xl) for modals
+
+**Responsive Design**:
+- **Strategy**: Mobile-First Design
+- **Breakpoints**:
+  - Mobile: < 640px (sm)
+  - Tablet: 640px - 1023px (md, lg)
+  - Desktop: ≥ 1024px (xl, 2xl)
+- **Grid System**: 4 columns (mobile), 8 columns (tablet), 12 columns (desktop)
+
+**Accessibility** (WCAG 2.1 AA Compliance):
+- **Color Contrast**: 4.5:1 minimum for text, 3:1 for UI components
+- **Keyboard Navigation**: Full keyboard access, visible focus indicators
+- **Screen Reader**: Semantic HTML, ARIA labels for dynamic content
+- **Touch Targets**: Minimum 44x44px for mobile interactions
+- **Alternative Text**: Descriptive alt text for all images
+
+**Design Tools**:
+- **Primary**: Figma (design, prototyping, handoff)
+- **Prototyping**: Figma interactive components
+- **Version Control**: Figma branching for design iterations
+- **Collaboration**: Figma comments for feedback, FigJam for workshops
+
+**Component Specifications**:
+- **Button Variants**: Primary, Secondary, Outline, Ghost, Danger (5 variants × 3 sizes)
+- **Input Fields**: Text, Email, Password, Textarea, Select (with error/success states)
+- **Cards**: Product Card, Feature Card, Testimonial Card
+- **Navigation**: Top Nav (desktop), Hamburger Menu (mobile), Breadcrumbs
+- **Modals**: Confirmation, Form, Image Lightbox
+```
+
 ---
 
 ## 7. Session Start Message

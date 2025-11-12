@@ -545,6 +545,155 @@ f) すべて
 - ✅ ユーザーが途中経過を確認できる
 - ✅ 英語版を先に確認してから日本語版を生成できる
 
+### Phase 5: Steering更新 (Project Memory Update)
+
+```
+🔄 プロジェクトメモリ（Steering）を更新します。
+
+このエージェントの成果物をsteeringファイルに反映し、他のエージェントが
+最新のプロジェクトコンテキストを参照できるようにします。
+```
+
+**更新対象ファイル:**
+- `steering/tech.md` (英語版) - クラウドサービスと技術スタック
+- `steering/tech.ja.md` (日本語版)
+- `steering/structure.md` (英語版) - インフラ構成と組織
+- `steering/structure.ja.md` (日本語版)
+
+**更新内容:**
+
+**tech.mdへの追加:**
+Cloud Architectの成果物から以下の情報を抽出し、`steering/tech.md`に追記します：
+
+- **Cloud Provider**: AWS/Azure/GCP、選択理由
+- **Compute Services**: EC2/Lambda/ECS/AKS/GKE等の使用サービス
+- **Storage Services**: S3/Blob Storage/Cloud Storage等
+- **Networking**: VPC/VNet構成、CDN、ロードバランサー
+- **IaC Tools**: Terraform/Bicep/CloudFormation等のバージョンと使用方法
+- **Monitoring & Logging**: CloudWatch/Azure Monitor/Cloud Logging等
+
+**structure.mdへの追加:**
+Cloud Architectの成果物から以下の情報を抽出し、`steering/structure.md`に追記します：
+
+- **Infrastructure Organization**: 環境分離（production/staging/development）
+- **Deployment Structure**: リージョン構成、AZ配置戦略
+- **Network Architecture**: サブネット設計、セキュリティグループ構成
+- **Resource Naming Convention**: クラウドリソースの命名規則
+- **IaC Directory Structure**: Terraform/Bicepファイルの組織化
+
+**更新方法:**
+1. 既存の `steering/tech.md` と `steering/structure.md` を読み込む（存在する場合）
+2. 今回の成果物から重要な情報を抽出
+3. 該当セクションに追記または更新
+4. 英語版と日本語版の両方を更新
+
+```
+🤖 Steering更新中...
+
+📖 既存のsteering/tech.mdを読み込んでいます...
+📖 既存のsteering/structure.mdを読み込んでいます...
+📝 クラウドアーキテクチャ情報を抽出しています...
+
+✍️  steering/tech.mdを更新しています...
+✍️  steering/tech.ja.mdを更新しています...
+✍️  steering/structure.mdを更新しています...
+✍️  steering/structure.ja.mdを更新しています...
+
+✅ Steering更新完了
+
+プロジェクトメモリが更新されました。
+```
+
+**更新例（tech.md）:**
+```markdown
+## Cloud Infrastructure
+
+**Provider**: AWS (Amazon Web Services)
+- **Region**: ap-northeast-1 (Tokyo) - Primary
+- **DR Region**: ap-southeast-1 (Singapore) - Disaster Recovery
+- **Justification**: Low latency for Japanese users, comprehensive service catalog, mature ecosystem
+
+**Compute**:
+- **Application Servers**: EC2 t3.medium (Auto Scaling: 2-10 instances)
+- **Container Orchestration**: EKS 1.28 (Kubernetes)
+- **Serverless**: Lambda (Node.js 20.x runtime) for event processing
+
+**Storage**:
+- **Object Storage**: S3 Standard (with Intelligent-Tiering for cost optimization)
+- **Block Storage**: EBS gp3 volumes (encrypted at rest)
+- **Backup**: S3 Glacier for long-term retention
+
+**Networking**:
+- **CDN**: CloudFront with custom SSL certificate
+- **Load Balancer**: Application Load Balancer (ALB) with WAF
+- **VPN**: AWS Site-to-Site VPN for on-premises connectivity
+
+**IaC**:
+- **Tool**: Terraform 1.6+
+- **State Backend**: S3 with DynamoDB locking
+- **Modules**: Custom modules in `terraform/modules/`
+- **CI/CD**: GitHub Actions for automated deployment
+
+**Monitoring**:
+- **Metrics**: CloudWatch with custom metrics
+- **Logs**: CloudWatch Logs with 30-day retention
+- **Alerting**: SNS to Slack for critical alerts
+- **Cost Management**: AWS Cost Explorer with budget alerts
+```
+
+**更新例（structure.md）:**
+```markdown
+## Infrastructure Organization
+
+**Environment Strategy**:
+```
+production/    # Production environment (isolated AWS account)
+├── ap-northeast-1/  # Primary region
+│   ├── vpc/
+│   ├── ec2/
+│   └── rds/
+└── ap-southeast-1/  # DR region
+
+staging/       # Staging environment (shared AWS account)
+└── ap-northeast-1/
+
+development/   # Development environment (shared AWS account)
+└── ap-northeast-1/
+```
+
+**Network Architecture**:
+- **VPC CIDR**: 10.0.0.0/16
+  - Public Subnets: 10.0.1.0/24 (AZ-a), 10.0.2.0/24 (AZ-c)
+  - Private Subnets: 10.0.11.0/24 (AZ-a), 10.0.12.0/24 (AZ-c)
+  - Database Subnets: 10.0.21.0/24 (AZ-a), 10.0.22.0/24 (AZ-c)
+
+**Resource Naming Convention**:
+- Format: `{project}-{environment}-{service}-{resource-type}`
+- Example: `myapp-prod-web-alb`, `myapp-stg-db-rds`
+
+**IaC Structure**:
+```
+terraform/
+├── environments/
+│   ├── production/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── terraform.tfvars
+│   └── staging/
+├── modules/
+│   ├── vpc/
+│   ├── ec2/
+│   └── rds/
+└── global/
+    └── s3-backend/
+```
+
+**Deployment Strategy**:
+- **Blue-Green Deployment**: For zero-downtime updates
+- **Auto Scaling**: Based on CPU (>70%) and request count
+- **Health Checks**: ALB health checks every 30s
+```
+
 ---
 
 ## 6. Architecture Diagram Template (AWS Example)

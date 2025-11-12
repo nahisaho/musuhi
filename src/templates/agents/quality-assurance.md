@@ -781,6 +781,131 @@ QA活動完了を報告し、継続的な品質改善を提案します。
 
 ---
 
+### Phase 4.5: Steering更新 (Project Memory Update)
+
+```
+🔄 プロジェクトメモリ（Steering）を更新します。
+
+このエージェントの成果物をsteeringファイルに反映し、他のエージェントが
+最新のプロジェクトコンテキストを参照できるようにします。
+```
+
+**更新対象ファイル:**
+- `steering/tech.md` (英語版)
+- `steering/tech.ja.md` (日本語版)
+
+**更新内容:**
+- QA processes and methodologies (test levels, test types, coverage goals)
+- Quality metrics and KPIs (coverage targets, defect density thresholds)
+- Testing standards and best practices (coding standards for tests, review process)
+- QA tools and frameworks (testing tools, test management, CI/CD integration)
+- Test automation strategy (automation pyramid, tool selection)
+- Quality gates and release criteria (definition of done, acceptance criteria)
+
+**更新方法:**
+1. 既存の `steering/tech.md` を読み込む（存在する場合）
+2. 今回の成果物から重要な情報を抽出
+3. tech.md の該当セクションに追記または更新
+4. 英語版と日本語版の両方を更新
+
+```
+🤖 Steering更新中...
+
+📖 既存のsteering/tech.mdを読み込んでいます...
+📝 QAプロセスと品質基準情報を抽出しています...
+
+✍️  steering/tech.mdを更新しています...
+✍️  steering/tech.ja.mdを更新しています...
+
+✅ Steering更新完了
+
+プロジェクトメモリが更新されました。
+```
+
+**更新例:**
+```markdown
+## QA Strategy and Testing Standards
+
+### Test Pyramid
+```
+          /\
+         /E2E\        10% - Critical user flows
+        /------\
+       /  API  \      30% - API endpoints
+      /----------\
+     /   Unit    \   60% - Functions, components
+    /--------------\
+```
+
+### Quality Metrics and Targets
+- **Code Coverage**: ≥85% for backend, ≥80% for frontend
+- **Requirement Coverage**: 100% for P0, 90% for P1
+- **Defect Density**: <5 defects per KLOC
+- **Test Pass Rate**: ≥95%
+- **Defect Removal Efficiency**: ≥90%
+
+### Testing Tools
+- **Unit Testing**:
+  - JavaScript/TypeScript: Jest 29.7.0, Vitest 1.0.4
+  - Python: pytest 7.4.3
+  - Java: JUnit 5.10.1
+- **Integration Testing**:
+  - API Testing: Supertest 6.3.3, Postman
+  - Database: Testcontainers 3.4.0
+- **E2E Testing**:
+  - Web: Playwright 1.40.1, Cypress 13.6.0
+  - Mobile: Appium 2.2.1
+- **Performance Testing**: Apache JMeter 5.6, k6 0.48.0
+- **Security Testing**: OWASP ZAP 2.14.0
+- **Accessibility**: axe-core 4.8.2, pa11y 7.0.0
+
+### Test Management
+- **Test Case Management**: TestRail, Azure Test Plans
+- **Bug Tracking**: Jira (integration with test cases)
+- **Test Automation CI/CD**: GitHub Actions, Jenkins
+- **Test Reporting**: Allure 2.24.1, ReportPortal
+
+### Quality Gates
+- **Pre-merge**:
+  - All unit tests pass
+  - Code coverage meets threshold
+  - No Critical/High code quality issues (SonarQube)
+- **Pre-deployment (Staging)**:
+  - All integration tests pass
+  - All E2E tests for critical flows pass
+  - Performance benchmarks met
+  - Security scan: no Critical/High vulnerabilities
+- **Production Release**:
+  - UAT sign-off complete
+  - All P0 defects resolved
+  - Rollback plan verified
+  - Monitoring alerts configured
+
+### Testing Best Practices
+- **Test Isolation**: Each test is independent and can run in any order
+- **Test Data Management**: Use fixtures and factories for test data
+- **Flaky Test Policy**: Fix or quarantine flaky tests within 24 hours
+- **Test Naming**: Descriptive names following Given-When-Then pattern
+- **Test Review**: All test code reviewed like production code
+- **Continuous Testing**: Tests run on every commit in CI/CD
+
+### Non-Functional Testing Standards
+- **Performance**:
+  - Response time <500ms for 95th percentile
+  - Support 1000 concurrent users
+  - Page load time <2 seconds
+- **Security**:
+  - OWASP Top 10 compliance
+  - Regular security audits
+  - Penetration testing before major releases
+- **Accessibility**:
+  - WCAG 2.1 Level AA compliance
+  - Keyboard navigation support
+  - Screen reader compatibility
+```
+
+---
+
 ## 5. Templates
 
 ### QA戦略書テンプレート

@@ -540,6 +540,99 @@ e) 該当なし（新規システム）
 
 ---
 
+### Phase 5: Steering更新 (Project Memory Update)
+
+```
+🔄 プロジェクトメモリ（Steering）を更新します。
+
+このエージェントの成果物をsteeringファイルに反映し、他のエージェントが
+最新のプロジェクトコンテキストを参照できるようにします。
+```
+
+**更新対象ファイル:**
+- `steering/structure.md` (英語版)
+- `steering/structure.ja.md` (日本語版)
+
+**更新内容:**
+- **Architecture Patterns**: 採用したアーキテクチャパターン（レイヤードアーキテクチャ、マイクロサービス等）
+- **Directory Structure**: プロジェクトのディレクトリ構成と命名規則
+- **Component Organization**: コンポーネントの配置ルールとモジュール構成
+- **Design Principles**: 設計原則（SOLID、DRY等）
+- **Technology Decisions**: アーキテクチャ決定記録（ADR）の主要な決定事項
+
+**更新方法:**
+1. 既存の `steering/structure.md` を読み込む（存在する場合）
+2. 今回設計したアーキテクチャから重要な情報を抽出
+3. structure.md の該当セクションに追記または更新
+4. 英語版と日本語版の両方を更新
+
+```
+🤖 Steering更新中...
+
+📖 既存のsteering/structure.mdを読み込んでいます...
+📝 アーキテクチャ情報を抽出しています...
+   - アーキテクチャパターン: 3層アーキテクチャ
+   - コンポーネント: 15個
+   - レイヤー: Presentation, Business, Data Access
+
+✍️  steering/structure.mdを更新しています...
+✍️  steering/structure.ja.mdを更新しています...
+
+✅ Steering更新完了
+
+プロジェクトメモリが更新されました。
+他のエージェント（API Designer, Database Designer等）が
+このアーキテクチャ情報を参照できるようになりました。
+```
+
+**更新例:**
+
+```markdown
+## Architecture Pattern (Updated: 2025-01-12)
+
+### Overall Architecture
+- **Style**: 3-Tier Architecture (Presentation, Business Logic, Data Access)
+- **Pattern**: Layered Architecture with Clean Architecture principles
+- **Communication**: Synchronous REST API, Asynchronous Event-Driven (Message Queue)
+
+### Directory Structure
+
+\`\`\`
+src/
+├── presentation/        # Presentation Layer
+│   ├── controllers/     # API Controllers
+│   ├── middleware/      # Express middleware
+│   └── validators/      # Request validation
+├── application/         # Business Logic Layer
+│   ├── services/        # Business services
+│   ├── usecases/        # Use case implementations
+│   └── interfaces/      # Port definitions
+├── domain/             # Domain Layer
+│   ├── entities/       # Domain entities
+│   ├── valueobjects/   # Value objects
+│   └── repositories/   # Repository interfaces
+└── infrastructure/     # Infrastructure Layer
+    ├── database/       # Database implementations
+    ├── external/       # External API clients
+    └── messaging/      # Message queue implementations
+\`\`\`
+
+### Component Organization
+
+- **Feature-First**: Organize by feature, not by technical layer
+- **Dependency Rule**: Dependencies point inward (Infrastructure → Domain)
+- **Interface Segregation**: Define interfaces at domain layer
+
+### Design Principles
+
+- **SOLID Principles**: Applied throughout the codebase
+- **DRY (Don't Repeat Yourself)**: Shared logic extracted to utilities
+- **Separation of Concerns**: Clear boundaries between layers
+- **Dependency Injection**: Used for loose coupling
+```
+
+---
+
 ## 6. Documentation Templates
 
 ### 6.1 Architecture Design Document Template

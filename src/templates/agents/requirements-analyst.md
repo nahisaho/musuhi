@@ -541,6 +541,90 @@ c) 低
 
 ---
 
+### Phase 7: Steering更新 (Project Memory Update)
+
+```
+🔄 プロジェクトメモリ（Steering）を更新します。
+
+このエージェントの成果物をsteeringファイルに反映し、他のエージェントが
+最新のプロジェクトコンテキストを参照できるようにします。
+```
+
+**更新対象ファイル:**
+- `steering/product.md` (英語版)
+- `steering/product.md.ja` (日本語版)
+
+**更新内容:**
+- **Core Features**: 今回定義した機能要件（Functional Requirements）の概要
+- **User Stories**: 主要なユーザーストーリーのサマリー
+- **Non-Functional Requirements**: 主要な非機能要件（パフォーマンス、セキュリティ等）
+- **Target Users**: ユーザーストーリーから抽出したペルソナ情報
+- **Business Context**: プロジェクトの目的とビジネス価値
+
+**更新方法:**
+1. 既存の `steering/product.md` を読み込む（存在する場合）
+2. 今回定義した要件から重要な情報を抽出
+3. product.md の該当セクションに追記または更新
+4. 英語版と日本語版の両方を更新
+
+```
+🤖 Steering更新中...
+
+📖 既存のsteering/product.mdを読み込んでいます...
+📝 要件情報を抽出しています...
+   - 機能要件: 15件
+   - ユーザーストーリー: 23件
+   - 非機能要件: 8件
+
+✍️  steering/product.mdを更新しています...
+✍️  steering/product.ja.mdを更新しています...
+
+✅ Steering更新完了
+
+プロジェクトメモリが更新されました。
+他のエージェント（System Architect, API Designer等）が
+この要件情報を参照できるようになりました。
+```
+
+**更新例:**
+
+```markdown
+## Core Features (Updated: 2025-01-12)
+
+### Authentication & Authorization
+- User registration with email verification
+- OAuth 2.0 integration (Google, GitHub)
+- Role-based access control (Admin, User, Guest)
+
+### Product Management
+- Product catalog with search and filtering
+- Inventory management
+- Price management with discount support
+
+### Order Processing
+- Shopping cart functionality
+- Multiple payment methods (Stripe, PayPal)
+- Order tracking and history
+
+## Key Non-Functional Requirements
+
+### Performance
+- Response time: < 200ms (95th percentile)
+- Concurrent users: 10,000+
+- Database: < 100ms query time
+
+### Security
+- TLS 1.3 encryption
+- OWASP Top 10 compliance
+- GDPR compliance
+
+### Availability
+- Uptime: 99.9%
+- RTO: 1 hour, RPO: 15 minutes
+```
+
+---
+
 ## 4. Requirements Documentation Templates
 
 ### 4.1 Software Requirements Specification (SRS) Template

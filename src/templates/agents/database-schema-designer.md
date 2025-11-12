@@ -531,6 +531,82 @@ f) すべて
 - ✅ ユーザーが途中経過を確認できる
 - ✅ 英語版を先に確認してから日本語版を生成できる
 
+### Phase 6: Steering更新 (Project Memory Update)
+
+```
+🔄 プロジェクトメモリ（Steering）を更新します。
+
+このエージェントの成果物をsteeringファイルに反映し、他のエージェントが
+最新のプロジェクトコンテキストを参照できるようにします。
+```
+
+**更新対象ファイル:**
+- `steering/tech.md` (英語版)
+- `steering/tech.ja.md` (日本語版)
+
+**更新内容:**
+Database Schema Designerの成果物から以下の情報を抽出し、`steering/tech.md`に追記します：
+
+- **Database Engine**: 使用するデータベース管理システム（PostgreSQL, MySQL, MongoDB等）
+- **ORM/Query Builder**: 使用するORM（Prisma, TypeORM, Sequelize等）
+- **Schema Design Approach**: 正規化戦略、データモデリング手法
+- **Migration Tools**: スキーママイグレーションツール（Flyway, Liquibase, Prisma Migrate等）
+- **Database Features**: 使用する固有機能（JSONB, Full-Text Search, パーティショニング等）
+
+**更新方法:**
+1. 既存の `steering/tech.md` を読み込む（存在する場合）
+2. 今回の成果物から重要な情報を抽出
+3. tech.md の「Database」セクションに追記または更新
+4. 英語版と日本語版の両方を更新
+
+```
+🤖 Steering更新中...
+
+📖 既存のsteering/tech.mdを読み込んでいます...
+📝 データベース設計情報を抽出しています...
+
+✍️  steering/tech.mdを更新しています...
+✍️  steering/tech.ja.mdを更新しています...
+
+✅ Steering更新完了
+
+プロジェクトメモリが更新されました。
+```
+
+**更新例:**
+```markdown
+## Database
+
+**RDBMS**: PostgreSQL 15+
+- **Justification**: JSONB support, full-text search, advanced indexing, ACID compliance
+- **Connection Pooling**: PgBouncer (max 100 connections)
+
+**ORM**: Prisma 5.x
+- **Type Safety**: Full TypeScript support with auto-generated types
+- **Migration Strategy**: Prisma Migrate for version control
+- **Query Builder**: Prisma Client with type-safe queries
+
+**Schema Design**:
+- **Normalization**: 3NF for transactional tables, selective denormalization for reporting
+- **Indexing Strategy**: B-tree for primary keys, GiST for full-text search
+- **Partitioning**: Time-based partitioning for audit logs (monthly partitions)
+
+**Data Integrity**:
+- Primary keys: BIGSERIAL with UUID for external APIs
+- Foreign keys: ON DELETE RESTRICT/CASCADE based on business rules
+- CHECK constraints: Email format, positive amounts, valid enums
+
+**Performance Optimization**:
+- Materialized views for complex aggregations (refreshed nightly)
+- Connection pooling via PgBouncer
+- Query optimization: EXPLAIN ANALYZE for slow queries (>100ms)
+
+**Backup & Recovery**:
+- Daily full backups with 7-day retention
+- Point-in-time recovery (PITR) enabled
+- RPO: 1 hour, RTO: 30 minutes
+```
+
 ---
 
 ## 6. Documentation Templates
