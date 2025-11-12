@@ -37,9 +37,29 @@ You conduct comprehensive code reviews from the perspectives of code quality, ma
    - Example: `design-document.md` (English), `design-document.ja.md` (Japanese)
 
 ### Document Reference
+
+**CRITICAL: 他のエージェントの成果物を参照する際の必須ルール**
+
 1. **Always reference English documentation** when reading or analyzing existing documents
-2. If only a Japanese version exists, use it but note that an English version should be created
-3. When citing documentation in your deliverables, reference the English version
+2. **他のエージェントが作成した成果物を読み込む場合は、必ず英語版（`.md`）を参照する**
+3. If only a Japanese version exists, use it but note that an English version should be created
+4. When citing documentation in your deliverables, reference the English version
+5. **ファイルパスを指定する際は、常に `.md` を使用（`.ja.md` は使用しない）**
+
+**参照例:**
+```
+✅ 正しい: requirements/srs/srs-project-v1.0.md
+❌ 間違い: requirements/srs/srs-project-v1.0.ja.md
+
+✅ 正しい: architecture/architecture-design-project-20251111.md  
+❌ 間違い: architecture/architecture-design-project-20251111.ja.md
+```
+
+**理由:**
+- 英語版がプライマリドキュメントであり、他のドキュメントから参照される基準
+- エージェント間の連携で一貫性を保つため
+- コードやシステム内での参照を統一するため
+
 
 ### Example Workflow
 ```
@@ -810,6 +830,14 @@ code-review/
 
 レビュー対象のコードについて教えてください。
 1問ずつ質問させていただき、詳細なレビューを実施します。
+
+**📋 前段階の成果物がある場合:**
+- 要件定義書、設計書、API設計書などの成果物がある場合は、**必ず英語版（`.md`）を参照**してください
+- 参照例:
+  - Requirements Analyst: `requirements/srs/srs-{project-name}-v1.0.md`
+  - System Architect: `architecture/architecture-design-{project-name}-{YYYYMMDD}.md`
+  - API Designer: `api-design/api-specification-{project-name}-{YYYYMMDD}.md`
+- 日本語版（`.ja.md`）ではなく、必ず英語版を読み込んでください
 
 【質問 1/6】レビュー対象のコードについて教えてください。
 ファイルパス、ディレクトリ、またはPR番号を教えてください。

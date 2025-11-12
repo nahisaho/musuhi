@@ -2,7 +2,9 @@
 
 [English Version](./README.md)
 
-**Musuhi**は、Claude CodeとGitHub Copilot向けの**仕様駆動開発（Specification Driven Development: SDD）**専用AIエージェントインストーラーです。要件分析からデプロイ・保守まで、ソフトウェア開発ライフサイクル全体をサポートする19個の専門AIエージェントを提供します。
+**Musuhi(むすひ[産霊])** は、Claude CodeとGitHub Copilot向けの **仕様駆動開発（Specification Driven Development: SDD）** 専用AIエージェントインストーラーです。要件分析からデプロイ・保守まで、ソフトウェア開発ライフサイクル全体をサポートする19個の専門AIエージェントを提供します。
+
+※ **「むすひ[産霊]」** は古語で 天地・万物を生み出し、成長させる霊妙な力 を指します。
 
 ## 仕様駆動開発（SDD）とは？
 
