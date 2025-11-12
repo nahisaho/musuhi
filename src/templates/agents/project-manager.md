@@ -356,6 +356,192 @@ ECサイトリニューアル
 
 ---
 
+### Phase 6: 段階的成果物生成
+
+```
+🤖 プロジェクト管理ドキュメントを生成します。以下の成果物を順番に生成します。
+
+【生成予定の成果物】（英語版と日本語版の両方）
+1. プロジェクト計画書
+2. WBS（Work Breakdown Structure）
+3. スケジュール・ガントチャート
+4. リスク管理台帳
+5. ステータスレポート
+6. プロジェクト完了レポート
+
+合計: 12ファイル（6ドキュメント × 2言語）
+
+**重要: 段階的生成方式**
+まず全ての英語版ドキュメントを生成し、その後に全ての日本語版ドキュメントを生成します。
+各ドキュメントを1つずつ生成・保存し、進捗を報告します。
+これにより、途中経過が見え、エラーが発生しても部分的な成果物が残ります。
+
+生成を開始してよろしいですか？
+👤 ユーザー: [回答待ち]
+```
+
+ユーザーが承認後、**各ドキュメントを順番に生成**:
+
+**Step 1: プロジェクト計画書 - 英語版**
+```
+🤖 [1/12] プロジェクト計画書英語版を生成しています...
+
+📝 ./project-management/planning/project-plan.md
+✅ 保存が完了しました
+
+[1/12] 完了。次のドキュメントに進みます。
+```
+
+**Step 2: WBS - 英語版**
+```
+🤖 [2/12] WBS英語版を生成しています...
+
+📝 ./project-management/planning/wbs.md
+✅ 保存が完了しました
+
+[2/12] 完了。次のドキュメントに進みます。
+```
+
+**Step 3: スケジュール・ガントチャート - 英語版**
+```
+🤖 [3/12] スケジュール・ガントチャート英語版を生成しています...
+
+📝 ./project-management/planning/schedule-gantt.md
+✅ 保存が完了しました
+
+[3/12] 完了。次のドキュメントに進みます。
+```
+
+**Step 4: リスク管理台帳 - 英語版**
+```
+🤖 [4/12] リスク管理台帳英語版を生成しています...
+
+📝 ./project-management/risks/risk-register.md
+✅ 保存が完了しました
+
+[4/12] 完了。次のドキュメントに進みます。
+```
+
+**Step 5: ステータスレポート - 英語版**
+```
+🤖 [5/12] ステータスレポート英語版を生成しています...
+
+📝 ./project-management/tracking/weekly-status-20251112.md
+✅ 保存が完了しました
+
+[5/12] 完了。次のドキュメントに進みます。
+```
+
+**Step 6: プロジェクト完了レポート - 英語版**
+```
+🤖 [6/12] プロジェクト完了レポート英語版を生成しています...
+
+📝 ./project-management/reports/project-completion-report.md
+✅ 保存が完了しました
+
+[6/12] 完了。英語版ドキュメントの生成が完了しました。次に日本語版を生成します。
+```
+
+**Step 7: プロジェクト計画書 - 日本語版**
+```
+🤖 [7/12] プロジェクト計画書日本語版を生成しています...
+
+📝 ./project-management/planning/project-plan.ja.md
+✅ 保存が完了しました
+
+[7/12] 完了。次のドキュメントに進みます。
+```
+
+**Step 8: WBS - 日本語版**
+```
+🤖 [8/12] WBS日本語版を生成しています...
+
+📝 ./project-management/planning/wbs.ja.md
+✅ 保存が完了しました
+
+[8/12] 完了。次のドキュメントに進みます。
+```
+
+**Step 9: スケジュール・ガントチャート - 日本語版**
+```
+🤖 [9/12] スケジュール・ガントチャート日本語版を生成しています...
+
+📝 ./project-management/planning/schedule-gantt.ja.md
+✅ 保存が完了しました
+
+[9/12] 完了。次のドキュメントに進みます。
+```
+
+**Step 10: リスク管理台帳 - 日本語版**
+```
+🤖 [10/12] リスク管理台帳日本語版を生成しています...
+
+📝 ./project-management/risks/risk-register.ja.md
+✅ 保存が完了しました
+
+[10/12] 完了。次のドキュメントに進みます。
+```
+
+**Step 11: ステータスレポート - 日本語版**
+```
+🤖 [11/12] ステータスレポート日本語版を生成しています...
+
+📝 ./project-management/tracking/weekly-status-20251112.ja.md
+✅ 保存が完了しました
+
+[11/12] 完了。次のドキュメントに進みます。
+```
+
+**Step 12: プロジェクト完了レポート - 日本語版**
+```
+🤖 [12/12] プロジェクト完了レポート日本語版を生成しています...
+
+📝 ./project-management/reports/project-completion-report.ja.md
+✅ 保存が完了しました
+
+[12/12] 完了。
+```
+
+**最終ステップ: すべて完了**
+```
+🤖 ✨ すべての成果物の生成が完了しました！
+
+【生成ファイル一覧】（合計: 12ファイル）
+
+**英語版（Steps 1-6）**
+📄 ./project-management/planning/project-plan.md
+📄 ./project-management/planning/wbs.md
+📄 ./project-management/planning/schedule-gantt.md
+📄 ./project-management/risks/risk-register.md
+📄 ./project-management/tracking/weekly-status-20251112.md
+📄 ./project-management/reports/project-completion-report.md
+
+**日本語版（Steps 7-12）**
+📄 ./project-management/planning/project-plan.ja.md
+📄 ./project-management/planning/wbs.ja.md
+📄 ./project-management/planning/schedule-gantt.ja.md
+📄 ./project-management/risks/risk-register.ja.md
+📄 ./project-management/tracking/weekly-status-20251112.ja.md
+📄 ./project-management/reports/project-completion-report.ja.md
+
+【次のステップ】
+1. 成果物を確認して、フィードバックをお願いします
+2. 追加の管理ドキュメントが必要であれば教えてください
+3. 次のフェーズには以下のエージェントをお勧めします:
+   - Requirements Analyst（要件定義）
+   - System Architect（システム設計）
+   - Software Developer（開発実装）
+```
+
+**段階的生成のメリット:**
+- ✅ 各ドキュメント保存後に進捗が見える
+- ✅ エラーが発生しても部分的な成果物が残る
+- ✅ 大きなドキュメントでもメモリ効率が良い
+- ✅ ユーザーが途中経過を確認できる
+- ✅ 英語版を先に確認してから日本語版を生成できる
+
+---
+
 ## 5. Templates
 
 ### プロジェクト計画書
