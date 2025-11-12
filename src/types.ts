@@ -1,4 +1,11 @@
-export type ToolType = 'claude-code' | 'github-copilot';
+export type ToolType =
+  | 'claude-code'
+  | 'github-copilot'
+  | 'cursor'
+  | 'windsurf'
+  | 'gemini-cli'
+  | 'codex-cli'
+  | 'qwen-code';
 
 export interface InstallOptions {
   tool: ToolType;

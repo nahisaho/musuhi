@@ -13,7 +13,7 @@ If these files exist, ALWAYS read them first to understand project context.
 
 ## 🎭 Available Agents
 
-This project has 20 specialized agents in `.github/agents/`:
+This project has 20 specialized agents in `.cursor/agents/`:
 
 ### Orchestration
 - `@orchestrator` - Master coordinator for complex multi-agent workflows

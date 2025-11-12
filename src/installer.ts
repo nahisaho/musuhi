@@ -14,9 +14,7 @@ export async function installAgents(options: InstallOptions): Promise<void> {
 
   try {
     // ターゲットディレクトリの決定
-    const targetPath = tool === 'claude-code'
-      ? path.join(targetDir, '.claude', 'agents')
-      : path.join(targetDir, '.github', 'agents');
+    const targetPath = getAgentsPath(tool, targetDir);
 
     // ディレクトリが存在するか確認
     const exists = await directoryExists(targetPath);
@@ -33,7 +31,7 @@ export async function installAgents(options: InstallOptions): Promise<void> {
     // テンプレートディレクトリのパス
     const templatesDir = path.join(__dirname, 'templates');
     const agentsTemplateDir = path.join(templatesDir, 'agents');
-    const toolTemplateDir = path.join(templatesDir, tool === 'claude-code' ? 'claude' : 'copilot');
+    const toolTemplateDir = path.join(templatesDir, getToolTemplateName(tool));
 
     // エージェントテンプレートをコピー
     await copyDirectory(agentsTemplateDir, targetPath);
@@ -52,20 +50,19 @@ export async function installAgents(options: InstallOptions): Promise<void> {
     // ツール固有の設定ファイルをコピー
     if (await directoryExists(toolTemplateDir)) {
       const entries = await fs.readdir(toolTemplateDir, { withFileTypes: true });
+      const rootConfigFiles = getToolRootConfigFiles(tool);
 
       for (const entry of entries) {
         if (entry.isFile()) {
           const srcPath = path.join(toolTemplateDir, entry.name);
           let destPath: string;
 
-          // CLAUDE.md と copilot-instructions.md はプロジェクトルートにコピー
-          if (entry.name === 'CLAUDE.md' || entry.name === 'copilot-instructions.md') {
+          // ツール固有のルート設定ファイルはプロジェクトルートにコピー
+          if (rootConfigFiles.includes(entry.name)) {
             destPath = path.join(targetDir, entry.name);
           } else {
-            // その他のファイル（README.md等）は .claude/ または .github/ にコピー
-            const toolTargetDir = tool === 'claude-code'
-              ? path.join(targetDir, '.claude')
-              : path.join(targetDir, '.github');
+            // その他のファイル（README.md等）はツールディレクトリにコピー
+            const toolTargetDir = getToolConfigDir(tool, targetDir);
             await fs.mkdir(toolTargetDir, { recursive: true });
             destPath = path.join(toolTargetDir, entry.name);
           }
@@ -141,4 +138,68 @@ async function fileExists(filePath: string): Promise<boolean> {
   } catch {
     return false;
   }
+}
+
+/**
+ * ツールに応じたエージェントディレクトリパスを取得
+ */
+function getAgentsPath(tool: string, targetDir: string): string {
+  const paths: Record<string, string> = {
+    'claude-code': path.join(targetDir, '.claude', 'agents'),
+    'github-copilot': path.join(targetDir, '.github', 'agents'),
+    'cursor': path.join(targetDir, '.cursor', 'agents'),
+    'windsurf': path.join(targetDir, '.windsurf', 'agents'),
+    'gemini-cli': path.join(targetDir, '.gemini', 'agents'),
+    'codex-cli': path.join(targetDir, '.codex', 'agents'),
+    'qwen-code': path.join(targetDir, '.qwen', 'agents'),
+  };
+  return paths[tool] || paths['claude-code'];
+}
+
+/**
+ * ツールに応じた設定ディレクトリを取得
+ */
+function getToolConfigDir(tool: string, targetDir: string): string {
+  const dirs: Record<string, string> = {
+    'claude-code': path.join(targetDir, '.claude'),
+    'github-copilot': path.join(targetDir, '.github'),
+    'cursor': path.join(targetDir, '.cursor'),
+    'windsurf': path.join(targetDir, '.windsurf'),
+    'gemini-cli': path.join(targetDir, '.gemini'),
+    'codex-cli': path.join(targetDir, '.codex'),
+    'qwen-code': path.join(targetDir, '.qwen'),
+  };
+  return dirs[tool] || dirs['claude-code'];
+}
+
+/**
+ * ツールに応じたテンプレート名を取得
+ */
+function getToolTemplateName(tool: string): string {
+  const names: Record<string, string> = {
+    'claude-code': 'claude',
+    'github-copilot': 'copilot',
+    'cursor': 'cursor',
+    'windsurf': 'windsurf',
+    'gemini-cli': 'gemini',
+    'codex-cli': 'codex',
+    'qwen-code': 'qwen',
+  };
+  return names[tool] || 'claude';
+}
+
+/**
+ * ツールに応じたルート設定ファイル名のリストを取得
+ */
+function getToolRootConfigFiles(tool: string): string[] {
+  const configs: Record<string, string[]> = {
+    'claude-code': ['CLAUDE.md'],
+    'github-copilot': ['copilot-instructions.md'],
+    'cursor': ['.cursorrules'],
+    'windsurf': ['.windsurfrules'],
+    'gemini-cli': ['gemini-config.md'],
+    'codex-cli': ['codex-config.md'],
+    'qwen-code': ['qwen-config.md'],
+  };
+  return configs[tool] || [];
 }
