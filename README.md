@@ -18,8 +18,9 @@ Specification Driven Development is a systematic approach where detailed specifi
 ## Features
 
 - 🎯 **20 Specialized Agents** - Complete SDD workflow coverage
-- 🧭 **Project Memory System** - Steering context for consistent, context-aware development (NEW in v0.3.0)
-- 📝 **EARS Format Support** - Testable, verifiable requirements with Easy Approach to Requirements Syntax (NEW in v0.3.1)
+- 🧭 **Project Memory System** - Steering context for consistent, context-aware development (v0.3.0)
+- 📝 **EARS Format Support** - Testable, verifiable requirements with Easy Approach to Requirements Syntax (v0.3.1)
+- 📐 **SDD Workflow Templates** - Comprehensive templates for requirements, design, tasks, and research (NEW in v0.3.2)
 - 🚀 **Quick Installation** - One command via `npx`
 - 🔄 **Claude Code & GitHub Copilot** - Works with both platforms
 - 📋 **Orchestrator Agent** - Coordinates multi-agent workflows
@@ -80,7 +81,16 @@ your-project/
 ├── steering/              # Project memory (shared context)
 │   ├── structure.md       # Architecture patterns & directory organization
 │   ├── tech.md            # Technology stack & framework decisions
-│   └── product.md         # Business context & product purpose
+│   ├── product.md         # Business context & product purpose
+│   ├── rules/             # Development guidelines
+│   │   ├── ears-format.md      # EARS requirements syntax guide
+│   │   ├── workflow.md         # SDD workflow guide (8 stages)
+│   │   └── agent-validation-checklist.md  # Agent quality validation
+│   └── templates/         # Document templates
+│       ├── requirements.md     # Requirements document template
+│       ├── design.md           # Technical design template
+│       ├── tasks.md            # Implementation plan template
+│       └── research.md         # Research document template
 └── .claude/
     ├── README.md          # Agent documentation
     └── agents/            # 20 specialized agents
@@ -106,7 +116,16 @@ your-project/
 ├── steering/                # Project memory (shared context)
 │   ├── structure.md         # Architecture patterns & directory organization
 │   ├── tech.md              # Technology stack & framework decisions
-│   └── product.md           # Business context & product purpose
+│   ├── product.md           # Business context & product purpose
+│   ├── rules/               # Development guidelines
+│   │   ├── ears-format.md        # EARS requirements syntax guide
+│   │   ├── workflow.md           # SDD workflow guide (8 stages)
+│   │   └── agent-validation-checklist.md  # Agent quality validation
+│   └── templates/           # Document templates
+│       ├── requirements.md       # Requirements document template
+│       ├── design.md             # Technical design template
+│       ├── tasks.md              # Implementation plan template
+│       └── research.md           # Research document template
 └── .github/
     ├── README.md            # Agent documentation
     └── agents/              # 20 specialized agents
@@ -235,6 +254,151 @@ EARS eliminates ambiguous requirements by providing structured patterns that ens
 - **Guidelines**: `steering/rules/ears-format.md` - Comprehensive EARS format documentation
 - **Template**: `steering/templates/requirements.md` - Requirements document template with EARS examples
 - **Agents**: Requirements Analyst, System Architect, and Test Engineer all support EARS format
+
+---
+
+## SDD Workflow Templates
+
+**NEW in v0.3.2**: Musuhi now provides comprehensive document templates and workflow guidance to support the complete Specification Driven Development lifecycle.
+
+### 8-Stage SDD Workflow
+
+Musuhi implements a structured 8-stage workflow from research to deployment:
+
+```
+Research → Requirements → Design → Tasks → Implementation → Testing → Deployment → Monitoring
+```
+
+**Workflow Guide**: `steering/rules/workflow.md` provides complete details on:
+- Quality gates for each phase
+- Agent handoff procedures
+- Requirements traceability matrices
+- Document lifecycle management
+- Best practices (DO/DON'T lists)
+
+### Document Templates
+
+All templates include bilingual support (English `.md` and Japanese `.ja.md` versions):
+
+#### 1. Research Document (`steering/templates/research.md`)
+**Purpose**: Technical research and options analysis
+**When to use**: Before starting requirements when technical decisions need investigation
+
+**Sections**:
+- Research questions and methodology
+- Options analysis with pros/cons
+- Comparison matrix
+- Recommendation with rationale
+- Risk assessment
+
+#### 2. Requirements Document (`steering/templates/requirements.md`)
+**Purpose**: Define WHAT the system must do
+**Agent**: `@requirements-analyst`
+
+**Sections**:
+- Functional requirements in EARS format
+- Non-functional requirements (performance, security, scalability)
+- User stories with acceptance criteria
+- Requirements traceability matrix
+- MoSCoW prioritization
+
+#### 3. Design Document (`steering/templates/design.md`)
+**Purpose**: Define HOW the system will be built
+**Agent**: `@system-architect`
+
+**Sections**:
+- Architecture pattern selection (with justification)
+- C4 model diagrams (context, container, component)
+- Component specifications with EARS mapping
+- API design, database schema, security design
+- Sequence diagrams for major flows
+- Technology stack alignment
+- Appendix: EARS requirements cross-reference
+
+#### 4. Tasks Document (`steering/templates/tasks.md`)
+**Purpose**: Break design into actionable implementation tasks
+**Agent**: `@project-manager` or `@software-developer`
+
+**Sections**:
+- Phase-based task organization with dependencies
+- Each task includes: Description, EARS-based acceptance criteria, subtasks, requirements mapped, design references
+- Requirements coverage matrix (ensures 100% coverage)
+- Team assignments and timeline (Gantt chart)
+- Definition of Done checklist
+- Appendix: EARS-to-test mapping guide
+
+### Traceability Throughout
+
+All templates enforce bidirectional traceability:
+
+```
+Requirement ↔ Design Component ↔ Task ↔ Code ↔ Test
+```
+
+**Example**:
+- `REQ-001`: WHEN user clicks submit, System SHALL validate
+  → **Design**: `FormValidator` component (design.md section 4.2)
+  → **Task**: Task 2.3 "Implement form validation"
+  → **Code**: `src/validators/FormValidator.ts:25`
+  → **Test**: `tests/FormValidator.test.ts:test_submit_validation()`
+
+### Quality Gates
+
+Each workflow stage has clear completion criteria:
+
+- **Requirements Gate**: All requirements in EARS format, stakeholder approved
+- **Design Gate**: All requirements mapped to design, architecture aligned with steering
+- **Implementation Gate**: Code review passed, 80%+ test coverage, no critical bugs
+- **Testing Gate**: All EARS requirements tested, all tests passing
+- **Deployment Gate**: Staging deployment successful, monitoring configured
+
+### How to Use
+
+```bash
+# 1. (Optional) Research technical options
+# Create: research.md using template
+
+# 2. Define requirements with Requirements Analyst
+@requirements-analyst Create requirements for [feature]
+# Output: requirements.md with EARS acceptance criteria
+
+# 3. Design architecture with System Architect
+@system-architect Design [feature] based on requirements.md
+# Output: design.md with component specifications and EARS mapping
+
+# 4. Create implementation plan
+@project-manager Create tasks from design.md
+# Output: tasks.md with requirements coverage matrix
+
+# 5. Implement with Software Developer
+@software-developer Implement Task 2.1 from tasks.md
+# Developers reference requirement IDs in code comments
+
+# 6. Test with Test Engineer
+@test-engineer Generate tests from requirements.md
+# EARS requirements convert directly to test cases
+
+# 7. Deploy
+@devops-engineer Deploy following tasks.md timeline
+
+# 8. Monitor
+@performance-optimizer Monitor production metrics
+```
+
+### Template Resources
+
+- **Workflow Guide**: `steering/rules/workflow.md` - Complete 8-stage SDD workflow
+- **Validation**: `steering/rules/agent-validation-checklist.md` - Agent quality validation framework
+- **Templates Directory**: `steering/templates/` - All document templates with examples
+
+### Benefits
+
+- ✅ **Structured Process** - Clear workflow from requirements to deployment
+- ✅ **Complete Traceability** - Track every requirement through to code and tests
+- ✅ **Quality Assurance** - Quality gates prevent incomplete work from advancing
+- ✅ **Team Coordination** - Standardized documents improve handoffs between roles
+- ✅ **Comprehensive Coverage** - Requirements coverage matrix ensures nothing is missed
+- ✅ **Bilingual Support** - All templates available in English and Japanese
 
 ---
 
