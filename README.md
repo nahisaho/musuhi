@@ -127,7 +127,6 @@ Agents are installed to `.github/agents/`:
 
 ```
 your-project/
-├── copilot-instructions.md  # Project configuration for GitHub Copilot
 ├── steering/                # Project memory (shared context)
 │   ├── structure.md         # Architecture patterns & directory organization
 │   ├── tech.md              # Technology stack & framework decisions
@@ -142,8 +141,9 @@ your-project/
 │       ├── tasks.md              # Implementation plan template
 │       └── research.md           # Research document template
 └── .github/
-    ├── README.md            # Agent documentation
-    └── agents/              # 20 specialized agents
+    ├── copilot-instructions.md  # Project configuration for GitHub Copilot
+    ├── README.md                # Agent documentation
+    └── agents/                  # 20 specialized agents
         ├── steering.md              # Project memory manager
         ├── orchestrator.md
         ├── code-reviewer.md
@@ -151,7 +151,7 @@ your-project/
         └── ... (16 more agents)
 ```
 
-The `copilot-instructions.md` file (in project root) provides GitHub Copilot with project-specific context, including:
+The `.github/copilot-instructions.md` file provides GitHub Copilot with project-specific context, including:
 - Available agents and their purposes
 - SDD workflow guidance
 - Quick reference commands

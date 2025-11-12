@@ -57,8 +57,14 @@ export async function installAgents(options: InstallOptions): Promise<void> {
           const srcPath = path.join(toolTemplateDir, entry.name);
           let destPath: string;
 
+          // GitHub Copilotの特別処理: copilot-instructions.md は .github/ に配置
+          if (tool === 'github-copilot' && entry.name === 'copilot-instructions.md') {
+            const githubDir = path.join(targetDir, '.github');
+            await fs.mkdir(githubDir, { recursive: true });
+            destPath = path.join(githubDir, entry.name);
+          }
           // ツール固有のルート設定ファイルはプロジェクトルートにコピー
-          if (rootConfigFiles.includes(entry.name)) {
+          else if (rootConfigFiles.includes(entry.name)) {
             destPath = path.join(targetDir, entry.name);
           } else {
             // その他のファイル（README.md等）はツールディレクトリにコピー
@@ -194,7 +200,7 @@ function getToolTemplateName(tool: string): string {
 function getToolRootConfigFiles(tool: string): string[] {
   const configs: Record<string, string[]> = {
     'claude-code': ['CLAUDE.md'],
-    'github-copilot': ['copilot-instructions.md'],
+    'github-copilot': [], // copilot-instructions.md は .github/ に配置されるため空
     'cursor': ['.cursorrules'],
     'windsurf': ['.windsurfrules'],
     'gemini-cli': ['gemini-config.md'],

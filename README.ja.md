@@ -133,7 +133,6 @@ your-project/
 
 ```
 your-project/
-├── copilot-instructions.md  # GitHub Copilot用プロジェクト設定
 ├── steering/                # プロジェクトメモリ（共有コンテキスト）
 │   ├── structure.md         # アーキテクチャパターン、ディレクトリ構成
 │   ├── tech.md              # 技術スタック、フレームワーク決定
@@ -152,8 +151,9 @@ your-project/
 │       ├── tasks.ja.md           # 実装計画テンプレート（日本語版）
 │       └── research.md           # 調査ドキュメントテンプレート
 └── .github/
-    ├── README.md            # エージェントドキュメント
-    └── agents/              # 20個の専門エージェント
+    ├── copilot-instructions.md  # GitHub Copilot用プロジェクト設定
+    ├── README.md                # エージェントドキュメント
+    └── agents/                  # 20個の専門エージェント
         ├── steering.md              # プロジェクトメモリ管理者
         ├── orchestrator.md
         ├── code-reviewer.md
@@ -161,7 +161,7 @@ your-project/
         └── ... (他16個のエージェント)
 ```
 
-`copilot-instructions.md` ファイル（プロジェクトルート）は、GitHub Copilotにプロジェクト固有のコンテキストを提供します：
+`.github/copilot-instructions.md` ファイルは、GitHub Copilotにプロジェクト固有のコンテキストを提供します：
 - 利用可能なエージェントとその目的
 - SDDワークフローガイダンス
 - クイックリファレンスコマンド
