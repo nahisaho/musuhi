@@ -19,9 +19,11 @@ Specification Driven Development is a systematic approach where detailed specifi
 
 - 🎯 **20 Specialized Agents** - Complete SDD workflow coverage
 - 🧭 **Project Memory System** - Steering context for consistent, context-aware development (v0.3.0)
+- 🤖 **Auto Context Awareness** - All agents automatically check project memory before starting work (v0.4.4)
 - 📝 **EARS Format Support** - Testable, verifiable requirements with Easy Approach to Requirements Syntax (v0.3.1)
 - 📐 **SDD Workflow Templates** - Comprehensive templates for requirements, design, tasks, and research (v0.3.2)
-- 🌐 **Multi-Platform Support** - Works with Claude Code, GitHub Copilot, Cursor, Windsurf IDE, Gemini CLI, Codex CLI, and Qwen Code (NEW in v0.4.0)
+- 📄 **Incremental Document Generation** - Generate documents one-by-one with visible progress and error recovery (v0.4.5)
+- 🌐 **Multi-Platform Support** - Works with Claude Code, GitHub Copilot, Cursor, Windsurf IDE, Gemini CLI, Codex CLI, and Qwen Code (v0.4.0)
 - 🚀 **Quick Installation** - One command via `npx`
 - 📋 **Orchestrator Agent** - Coordinates multi-agent workflows
 - 🔧 **Fully Customizable** - Adapt agents to your project needs
