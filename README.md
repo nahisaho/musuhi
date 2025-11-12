@@ -17,7 +17,8 @@ Specification Driven Development is a systematic approach where detailed specifi
 
 ## Features
 
-- 🎯 **19 Specialized Agents** - Complete SDD workflow coverage
+- 🎯 **20 Specialized Agents** - Complete SDD workflow coverage
+- 🧭 **Project Memory System** - Steering context for consistent, context-aware development (NEW in v0.3.0)
 - 🚀 **Quick Installation** - One command via `npx`
 - 🔄 **Claude Code & GitHub Copilot** - Works with both platforms
 - 📋 **Orchestrator Agent** - Coordinates multi-agent workflows
@@ -75,9 +76,14 @@ Agents are installed to `.claude/agents/`:
 ```
 your-project/
 ├── CLAUDE.md              # Project configuration for Claude Code
+├── steering/              # Project memory (shared context)
+│   ├── structure.md       # Architecture patterns & directory organization
+│   ├── tech.md            # Technology stack & framework decisions
+│   └── product.md         # Business context & product purpose
 └── .claude/
     ├── README.md          # Agent documentation
-    └── agents/            # 19 specialized agents
+    └── agents/            # 20 specialized agents
+        ├── steering.md            # Project memory manager
         ├── orchestrator.md
         ├── code-reviewer.md
         ├── software-developer.md
@@ -96,9 +102,14 @@ Agents are installed to `.github/agents/`:
 ```
 your-project/
 ├── copilot-instructions.md  # Project configuration for GitHub Copilot
+├── steering/                # Project memory (shared context)
+│   ├── structure.md         # Architecture patterns & directory organization
+│   ├── tech.md              # Technology stack & framework decisions
+│   └── product.md           # Business context & product purpose
 └── .github/
     ├── README.md            # Agent documentation
-    └── agents/              # 19 specialized agents
+    └── agents/              # 20 specialized agents
+        ├── steering.md              # Project memory manager
         ├── orchestrator.md
         ├── code-reviewer.md
         ├── software-developer.md
@@ -111,10 +122,59 @@ The `copilot-instructions.md` file (in project root) provides GitHub Copilot wit
 - Quick reference commands
 - Best practices for using agents
 
-## Available Agents (19 Specialists)
+## Project Memory (Steering System)
+
+**NEW in v0.3.0**: Musuhi now includes a **Project Memory** system that acts as a shared context for all agents. This ensures consistent, context-aware development across your entire project.
+
+### What is Project Memory?
+
+The `steering/` directory contains three core files that capture your project's "memory":
+
+- **`structure.md`** - Architecture patterns, directory organization, naming conventions
+- **`tech.md`** - Technology stack, frameworks, development tools, technical constraints
+- **`product.md`** - Business context, product purpose, target users, core capabilities
+
+### How It Works
+
+1. **Initial Setup**: When you install Musuhi, template steering files are created
+2. **Bootstrap**: Use the **Steering Agent** to analyze your codebase and generate project-specific steering files
+3. **Automatic Reference**: All agents automatically read steering files to understand your project context
+4. **Consistency**: Agents follow your architecture patterns, tech stack, and business requirements
+5. **Sync**: Update steering files as your project evolves to keep agents aligned
+
+### Steering Agent
+
+The **Steering Agent** manages your project memory:
+
+```bash
+# First time: Bootstrap project memory from codebase analysis
+@steering   # (in Claude Code)
+
+# Update: Sync steering files with codebase changes
+@steering   # Detects drift and suggests updates
+
+# Review: Check current steering context
+@steering   # View current project memory
+```
+
+**Modes:**
+- **Bootstrap**: Analyze codebase → Generate steering files (first time)
+- **Sync**: Compare code vs. steering → Detect drift → Update files
+- **Review**: Display current steering context
+
+### Benefits
+
+- ✅ **Consistent Architecture** - All agents follow the same patterns
+- ✅ **Tech Stack Awareness** - Agents use your project's frameworks and tools
+- ✅ **Business Context** - Development aligned with product goals
+- ✅ **Reduced Context Switching** - Project knowledge persists across sessions
+- ✅ **Team Alignment** - Shared understanding of project structure and decisions
+
+## Available Agents (20 Specialists)
 
 ### 🎭 Orchestration
-- **Orchestrator** - Master coordinator managing all 18 specialized agents for Specification Driven Development workflows, handling task decomposition, agent selection, and result integration
+- **Orchestrator** - Master coordinator managing all 19 specialized agents for Specification Driven Development workflows, handling task decomposition, agent selection, and result integration
+- **Steering Agent** - 🧭 Project memory manager that analyzes codebase to generate and maintain steering context (architecture patterns, tech stack, business context) for consistent development
 
 ### 📋 Requirements & Planning
 - **Requirements Analyst** - Requirements analysis, user story creation, specification definition, SRS documents, and acceptance criteria

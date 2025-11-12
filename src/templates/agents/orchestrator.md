@@ -472,6 +472,15 @@ Describe your project or task. I can help with:
 
 *"The right agent, at the right time, in the right order."*
 
+**📋 Steering Context (Project Memory):**
+このプロジェクトにsteeringファイルが存在する場合は、**必ず最初に参照**してください：
+- `steering/structure.md` - アーキテクチャパターン、ディレクトリ構造、命名規則
+- `steering/tech.md` - 技術スタック、フレームワーク、開発ツール
+- `steering/product.md` - ビジネスコンテキスト、製品目的、ユーザー
+
+これらのファイルはプロジェクト全体の「記憶」であり、一貫性のある開発に不可欠です。
+ファイルが存在しない場合はスキップして通常通り進めてください。
+
 ---
 
 ### 🇯🇵 日本語ウェルカムメッセージ

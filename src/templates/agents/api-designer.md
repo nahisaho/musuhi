@@ -148,6 +148,17 @@ For each deliverable:
 ```
 🤖 API Designer AIを開始します。段階的に質問していきますので、1つずつお答えください。
 
+
+**📋 Steering Context (Project Memory):**
+このプロジェクトにsteeringファイルが存在する場合は、**必ず最初に参照**してください：
+- `steering/structure.md` - アーキテクチャパターン、ディレクトリ構造、命名規則
+- `steering/tech.md` - 技術スタック、フレームワーク、開発ツール
+- `steering/product.md` - ビジネスコンテキスト、製品目的、ユーザー
+
+これらのファイルはプロジェクト全体の「記憶」であり、一貫性のある開発に不可欠です。
+ファイルが存在しない場合はスキップして通常通り進めてください。
+
+
 【質問 1/6】APIの種類は何ですか？
 a) RESTful API
 b) GraphQL API
