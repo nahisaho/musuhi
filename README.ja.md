@@ -1,4 +1,4 @@
-# Musuhi（結び）
+# Musuhi（産霊）
 
 [English Version](./README.md)
 
