@@ -2,7 +2,7 @@
 
 [日本語版 (Japanese)](./README.ja.md)
 
-**Musuhi** is a specialized AI agent installer for **Specification Driven Development (SDD)** with Claude Code and GitHub Copilot. It provides 19 professional AI agents designed to support the entire software development lifecycle from requirements analysis to deployment and maintenance.
+**Musuhi** is a specialized AI agent installer for **Specification Driven Development (SDD)** supporting Claude Code, GitHub Copilot, Cursor, Windsurf IDE, and AI CLIs (Gemini, Codex, Qwen). It provides 20 professional AI agents designed to support the entire software development lifecycle from requirements analysis to deployment and maintenance.
 
 ## What is Specification Driven Development?
 
@@ -20,9 +20,9 @@ Specification Driven Development is a systematic approach where detailed specifi
 - 🎯 **20 Specialized Agents** - Complete SDD workflow coverage
 - 🧭 **Project Memory System** - Steering context for consistent, context-aware development (v0.3.0)
 - 📝 **EARS Format Support** - Testable, verifiable requirements with Easy Approach to Requirements Syntax (v0.3.1)
-- 📐 **SDD Workflow Templates** - Comprehensive templates for requirements, design, tasks, and research (NEW in v0.3.2)
+- 📐 **SDD Workflow Templates** - Comprehensive templates for requirements, design, tasks, and research (v0.3.2)
+- 🌐 **Multi-Platform Support** - Works with Claude Code, GitHub Copilot, Cursor, Windsurf IDE, Gemini CLI, Codex CLI, and Qwen Code (NEW in v0.4.0)
 - 🚀 **Quick Installation** - One command via `npx`
-- 🔄 **Claude Code & GitHub Copilot** - Works with both platforms
 - 📋 **Orchestrator Agent** - Coordinates multi-agent workflows
 - 🔧 **Fully Customizable** - Adapt agents to your project needs
 - 📚 **Best Practices Built-in** - SOLID, OWASP, C4 Model, ADR, and more
@@ -52,7 +52,7 @@ npx musuhi
 ```
 
 You'll be prompted to:
-1. Choose between Claude Code or GitHub Copilot
+1. Choose your AI tool (Claude Code, GitHub Copilot, Cursor, Windsurf IDE, Gemini CLI, Codex CLI, or Qwen Code)
 2. Specify the target directory (defaults to current directory)
 
 ### Command Line Mode
@@ -65,6 +65,21 @@ npx musuhi install --tool claude-code
 
 # For GitHub Copilot
 npx musuhi install --tool github-copilot
+
+# For Cursor
+npx musuhi install --tool cursor
+
+# For Windsurf IDE
+npx musuhi install --tool windsurf
+
+# For Gemini CLI
+npx musuhi install --tool gemini-cli
+
+# For Codex CLI
+npx musuhi install --tool codex-cli
+
+# For Qwen Code
+npx musuhi install --tool qwen-code
 
 # Specify a different directory
 npx musuhi install --tool claude-code --dir /path/to/project
@@ -141,6 +156,99 @@ The `copilot-instructions.md` file (in project root) provides GitHub Copilot wit
 - SDD workflow guidance
 - Quick reference commands
 - Best practices for using agents
+
+### Cursor
+Agents are installed to `.cursor/agents/`:
+
+```
+your-project/
+├── .cursorrules           # Project configuration for Cursor
+├── steering/              # Project memory (shared context)
+│   ├── structure.md       # Architecture patterns & directory organization
+│   ├── tech.md            # Technology stack & framework decisions
+│   ├── product.md         # Business context & product purpose
+│   ├── rules/             # Development guidelines
+│   │   ├── ears-format.md      # EARS requirements syntax guide
+│   │   ├── workflow.md         # SDD workflow guide (8 stages)
+│   │   └── agent-validation-checklist.md  # Agent quality validation
+│   └── templates/         # Document templates
+│       ├── requirements.md     # Requirements document template
+│       ├── design.md           # Technical design template
+│       ├── tasks.md            # Implementation plan template
+│       └── research.md         # Research document template
+└── .cursor/
+    ├── README.md          # Agent documentation
+    └── agents/            # 20 specialized agents
+        ├── steering.md            # Project memory manager
+        ├── orchestrator.md
+        ├── code-reviewer.md
+        ├── software-developer.md
+        └── ... (16 more agents)
+```
+
+The `.cursorrules` file provides Cursor with project-specific context and agent usage instructions.
+
+### Windsurf IDE
+Agents are installed to `.windsurf/agents/`:
+
+```
+your-project/
+├── .windsurfrules         # Project configuration for Windsurf IDE
+├── steering/              # Project memory (shared context)
+│   ├── structure.md       # Architecture patterns & directory organization
+│   ├── tech.md            # Technology stack & framework decisions
+│   ├── product.md         # Business context & product purpose
+│   ├── rules/             # Development guidelines
+│   │   ├── ears-format.md      # EARS requirements syntax guide
+│   │   ├── workflow.md         # SDD workflow guide (8 stages)
+│   │   └── agent-validation-checklist.md  # Agent quality validation
+│   └── templates/         # Document templates
+│       ├── requirements.md     # Requirements document template
+│       ├── design.md           # Technical design template
+│       ├── tasks.md            # Implementation plan template
+│       └── research.md         # Research document template
+└── .windsurf/
+    ├── README.md          # Agent documentation
+    └── agents/            # 20 specialized agents
+        ├── steering.md            # Project memory manager
+        ├── orchestrator.md
+        ├── code-reviewer.md
+        ├── software-developer.md
+        └── ... (16 more agents)
+```
+
+The `.windsurfrules` file provides Windsurf IDE with project-specific context and agent usage instructions.
+
+### Gemini CLI, Codex CLI, Qwen Code
+Agents are installed to `.gemini/agents/`, `.codex/agents/`, or `.qwen/agents/`:
+
+```
+your-project/
+├── gemini-config.md       # Project configuration (or codex-config.md / qwen-config.md)
+├── steering/              # Project memory (shared context)
+│   ├── structure.md       # Architecture patterns & directory organization
+│   ├── tech.md            # Technology stack & framework decisions
+│   ├── product.md         # Business context & product purpose
+│   ├── rules/             # Development guidelines
+│   │   ├── ears-format.md      # EARS requirements syntax guide
+│   │   ├── workflow.md         # SDD workflow guide (8 stages)
+│   │   └── agent-validation-checklist.md  # Agent quality validation
+│   └── templates/         # Document templates
+│       ├── requirements.md     # Requirements document template
+│       ├── design.md           # Technical design template
+│       ├── tasks.md            # Implementation plan template
+│       └── research.md         # Research document template
+└── .gemini/               # (or .codex/ or .qwen/)
+    ├── README.md          # Agent documentation
+    └── agents/            # 20 specialized agents
+        ├── steering.md            # Project memory manager
+        ├── orchestrator.md
+        ├── code-reviewer.md
+        ├── software-developer.md
+        └── ... (16 more agents)
+```
+
+The config markdown file provides the CLI tool with project-specific context and agent usage instructions. Invoke agents using `@` mentions (e.g., `@orchestrator`, `@requirements-analyst`).
 
 ## Project Memory (Steering System)
 

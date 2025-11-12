@@ -2,7 +2,7 @@
 
 [English Version](./README.md)
 
-**Musuhi(むすひ[産霊])** は、Claude CodeとGitHub Copilot向けの **仕様駆動開発（Specification Driven Development: SDD）** 専用AIエージェントインストーラーです。要件分析からデプロイ・保守まで、ソフトウェア開発ライフサイクル全体をサポートする19個の専門AIエージェントを提供します。
+**Musuhi(むすひ[産霊])** は、Claude Code、GitHub Copilot、Cursor、Windsurf IDE、およびAI CLI（Gemini、Codex、Qwen）をサポートする **仕様駆動開発（Specification Driven Development: SDD）** 専用AIエージェントインストーラーです。要件分析からデプロイ・保守まで、ソフトウェア開発ライフサイクル全体をサポートする20個の専門AIエージェントを提供します。
 
 ※ **「むすひ[産霊]」** は古語で 天地・万物を生み出し、成長させる霊妙な力 を指します。
 
@@ -22,9 +22,9 @@
 - 🎯 **20個の専門エージェント** - SDD ワークフローを完全カバー
 - 🧭 **プロジェクトメモリシステム** - 一貫性のあるコンテキスト認識開発のためのステアリングコンテキスト（v0.3.0）
 - 📝 **EARS形式サポート** - 検証可能な要件定義（Easy Approach to Requirements Syntax）（v0.3.1）
-- 📐 **SDD ワークフローテンプレート** - 要件、設計、タスク、調査の包括的なテンプレート（v0.3.2 新機能）
+- 📐 **SDD ワークフローテンプレート** - 要件、設計、タスク、調査の包括的なテンプレート（v0.3.2）
+- 🌐 **マルチプラットフォーム対応** - Claude Code、GitHub Copilot、Cursor、Windsurf IDE、Gemini CLI、Codex CLI、Qwen Codeに対応（v0.4.0 新機能）
 - 🚀 **簡単インストール** - `npx`で1コマンド実行
-- 🔄 **Claude Code & GitHub Copilot** - 両プラットフォーム対応
 - 📋 **Orchestratorエージェント** - マルチエージェントワークフローを調整
 - 🔧 **完全カスタマイズ可能** - プロジェクトニーズに合わせて調整
 - 📚 **ベストプラクティス内蔵** - SOLID、OWASP、C4 Model、ADRなど
@@ -54,7 +54,7 @@ npx musuhi
 ```
 
 以下の質問に答えます：
-1. Claude CodeかGitHub Copilotを選択
+1. AIツールを選択（Claude Code、GitHub Copilot、Cursor、Windsurf IDE、Gemini CLI、Codex CLI、Qwen Code）
 2. ターゲットディレクトリを指定（デフォルト：カレントディレクトリ）
 
 ### コマンドラインモード
@@ -67,6 +67,21 @@ npx musuhi install --tool claude-code
 
 # GitHub Copilot用
 npx musuhi install --tool github-copilot
+
+# Cursor用
+npx musuhi install --tool cursor
+
+# Windsurf IDE用
+npx musuhi install --tool windsurf
+
+# Gemini CLI用
+npx musuhi install --tool gemini-cli
+
+# Codex CLI用
+npx musuhi install --tool codex-cli
+
+# Qwen Code用
+npx musuhi install --tool qwen-code
 
 # 別のディレクトリを指定
 npx musuhi install --tool claude-code --dir /path/to/project
@@ -151,6 +166,99 @@ your-project/
 - SDDワークフローガイダンス
 - クイックリファレンスコマンド
 - エージェント使用のベストプラクティス
+
+### Cursor
+エージェントは `.cursor/agents/` にインストールされます：
+
+```
+your-project/
+├── .cursorrules           # Cursor用プロジェクト設定
+├── steering/              # プロジェクトメモリ（共有コンテキスト）
+│   ├── structure.md       # アーキテクチャパターン、ディレクトリ構成
+│   ├── tech.md            # 技術スタック、フレームワーク決定
+│   ├── product.md         # ビジネスコンテキスト、製品目的
+│   ├── rules/             # 開発ガイドライン
+│   │   ├── ears-format.md      # EARS要件構文ガイド
+│   │   ├── workflow.md         # SDD ワークフローガイド（8段階）
+│   │   └── agent-validation-checklist.md  # エージェント品質検証
+│   └── templates/         # ドキュメントテンプレート
+│       ├── requirements.md     # 要件定義書テンプレート
+│       ├── design.md           # 技術設計テンプレート
+│       ├── tasks.md            # 実装計画テンプレート
+│       └── research.md         # 調査ドキュメントテンプレート
+└── .cursor/
+    ├── README.md          # エージェントドキュメント
+    └── agents/            # 20個の専門エージェント
+        ├── steering.md            # プロジェクトメモリ管理者
+        ├── orchestrator.md
+        ├── code-reviewer.md
+        ├── software-developer.md
+        └── ... (他16個のエージェント)
+```
+
+`.cursorrules` ファイルは、Cursorにプロジェクト固有のコンテキストとエージェント使用方法を提供します。
+
+### Windsurf IDE
+エージェントは `.windsurf/agents/` にインストールされます：
+
+```
+your-project/
+├── .windsurfrules         # Windsurf IDE用プロジェクト設定
+├── steering/              # プロジェクトメモリ（共有コンテキスト）
+│   ├── structure.md       # アーキテクチャパターン、ディレクトリ構成
+│   ├── tech.md            # 技術スタック、フレームワーク決定
+│   ├── product.md         # ビジネスコンテキスト、製品目的
+│   ├── rules/             # 開発ガイドライン
+│   │   ├── ears-format.md      # EARS要件構文ガイド
+│   │   ├── workflow.md         # SDD ワークフローガイド（8段階）
+│   │   └── agent-validation-checklist.md  # エージェント品質検証
+│   └── templates/         # ドキュメントテンプレート
+│       ├── requirements.md     # 要件定義書テンプレート
+│       ├── design.md           # 技術設計テンプレート
+│       ├── tasks.md            # 実装計画テンプレート
+│       └── research.md         # 調査ドキュメントテンプレート
+└── .windsurf/
+    ├── README.md          # エージェントドキュメント
+    └── agents/            # 20個の専門エージェント
+        ├── steering.md            # プロジェクトメモリ管理者
+        ├── orchestrator.md
+        ├── code-reviewer.md
+        ├── software-developer.md
+        └── ... (他16個のエージェント)
+```
+
+`.windsurfrules` ファイルは、Windsurf IDEにプロジェクト固有のコンテキストとエージェント使用方法を提供します。
+
+### Gemini CLI、Codex CLI、Qwen Code
+エージェントは `.gemini/agents/`、`.codex/agents/`、または `.qwen/agents/` にインストールされます：
+
+```
+your-project/
+├── gemini-config.md       # プロジェクト設定（または codex-config.md / qwen-config.md）
+├── steering/              # プロジェクトメモリ（共有コンテキスト）
+│   ├── structure.md       # アーキテクチャパターン、ディレクトリ構成
+│   ├── tech.md            # 技術スタック、フレームワーク決定
+│   ├── product.md         # ビジネスコンテキスト、製品目的
+│   ├── rules/             # 開発ガイドライン
+│   │   ├── ears-format.md      # EARS要件構文ガイド
+│   │   ├── workflow.md         # SDD ワークフローガイド（8段階）
+│   │   └── agent-validation-checklist.md  # エージェント品質検証
+│   └── templates/         # ドキュメントテンプレート
+│       ├── requirements.md     # 要件定義書テンプレート
+│       ├── design.md           # 技術設計テンプレート
+│       ├── tasks.md            # 実装計画テンプレート
+│       └── research.md         # 調査ドキュメントテンプレート
+└── .gemini/               # （または .codex/ または .qwen/）
+    ├── README.md          # エージェントドキュメント
+    └── agents/            # 20個の専門エージェント
+        ├── steering.md            # プロジェクトメモリ管理者
+        ├── orchestrator.md
+        ├── code-reviewer.md
+        ├── software-developer.md
+        └── ... (他16個のエージェント)
+```
+
+設定markdownファイルは、CLIツールにプロジェクト固有のコンテキストとエージェント使用方法を提供します。エージェントは `@` メンション（例：`@orchestrator`、`@requirements-analyst`）で呼び出します。
 
 ## プロジェクトメモリ（ステアリングシステム）
 
