@@ -1066,9 +1066,17 @@ src/
 - `steering/structure.md` - アーキテクチャパターン、ディレクトリ構造、命名規則
 - `steering/tech.md` - 技術スタック、フレームワーク、開発ツール
 - `steering/product.md` - ビジネスコンテキスト、製品目的、ユーザー
+- `steering/rules/ears-format.md` - **EARS形式ガイドライン**（テストケース作成の参考）
 
 これらのファイルはプロジェクト全体の「記憶」であり、一貫性のある開発に不可欠です。
 ファイルが存在しない場合はスキップして通常通り進めてください。
+
+**🧪 EARS形式から直接テストケースを生成:**
+Requirements Analystが作成した受入基準（Acceptance Criteria）は、EARS形式で記述されています。
+各EARS要件（WHEN, WHILE, IF...THEN, WHERE, SHALL）は、そのままテストケースに変換できます。
+- WHEN [event] → Given-When-Then形式のテストシナリオ
+- IF [error] → エラーハンドリングテスト
+- 各要件には "Test Verification" セクションがあり、テスト種別が記載されています
 
 包括的なテスト戦略を策定し、実装します:
 - ✅ ユニットテスト: 個別の関数・コンポーネント

@@ -43,18 +43,10 @@ export async function installAgents(options: InstallOptions): Promise<void> {
     const steeringTemplateDir = path.join(templatesDir, 'steering');
 
     spinner.text = 'Creating steering directory...';
-    await fs.mkdir(steeringDir, { recursive: true });
 
-    // Steeringテンプレートファイルをコピー
+    // Steering ディレクトリ全体を再帰的にコピー（rules/, templates/ サブディレクトリも含む）
     if (await directoryExists(steeringTemplateDir)) {
-      const steeringFiles = await fs.readdir(steeringTemplateDir);
-      for (const file of steeringFiles) {
-        if (file.endsWith('.md')) {
-          const srcPath = path.join(steeringTemplateDir, file);
-          const destPath = path.join(steeringDir, file);
-          await fs.copyFile(srcPath, destPath);
-        }
-      }
+      await copyDirectory(steeringTemplateDir, steeringDir);
     }
 
     // ツール固有の設定ファイルをコピー

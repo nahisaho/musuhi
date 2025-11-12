@@ -19,6 +19,7 @@ Specification Driven Development is a systematic approach where detailed specifi
 
 - 🎯 **20 Specialized Agents** - Complete SDD workflow coverage
 - 🧭 **Project Memory System** - Steering context for consistent, context-aware development (NEW in v0.3.0)
+- 📝 **EARS Format Support** - Testable, verifiable requirements with Easy Approach to Requirements Syntax (NEW in v0.3.1)
 - 🚀 **Quick Installation** - One command via `npx`
 - 🔄 **Claude Code & GitHub Copilot** - Works with both platforms
 - 📋 **Orchestrator Agent** - Coordinates multi-agent workflows
@@ -169,6 +170,73 @@ The **Steering Agent** manages your project memory:
 - ✅ **Business Context** - Development aligned with product goals
 - ✅ **Reduced Context Switching** - Project knowledge persists across sessions
 - ✅ **Team Alignment** - Shared understanding of project structure and decisions
+
+---
+
+## EARS Format for Requirements
+
+**NEW in v0.3.1**: Musuhi now supports **EARS (Easy Approach to Requirements Syntax)**, a standardized format for writing testable, verifiable acceptance criteria.
+
+### What is EARS?
+
+EARS eliminates ambiguous requirements by providing structured patterns that ensure:
+- ✅ **Testability** - Every requirement can be verified with automated tests
+- ✅ **Clarity** - No ambiguous language like "should", "might", or "user-friendly"
+- ✅ **Traceability** - Direct mapping from requirements to test cases
+- ✅ **Consistency** - Standardized format across all requirements
+
+### The 5 EARS Patterns
+
+1. **Event-Driven** - `WHEN [event], the [system] SHALL [response]`
+   - Example: `WHEN user clicks "Submit", the Order System SHALL validate all form fields`
+
+2. **State-Driven** - `WHILE [state], the [system] SHALL [response]`
+   - Example: `WHILE payment is processing, the Checkout UI SHALL display loading indicator`
+
+3. **Unwanted Behavior** - `IF [error condition], THEN the [system] SHALL [response]`
+   - Example: `IF invalid card number is entered, THEN the Payment Form SHALL display "Invalid card number" error`
+
+4. **Optional Features** - `WHERE [feature enabled], the [system] SHALL [response]`
+   - Example: `WHERE dark mode is enabled, the UI SHALL use dark color scheme`
+
+5. **Ubiquitous** - `The [system] SHALL [response]`
+   - Example: `The User Service SHALL encrypt passwords using bcrypt with cost factor 12`
+
+### EARS in Action
+
+```bash
+# Requirements Analyst creates requirements in EARS format
+@requirements-analyst Create requirements for user authentication
+
+# Result: Acceptance criteria written as:
+# - WHEN user submits valid credentials, the Auth Service SHALL return JWT token
+# - IF user enters incorrect password 3 times, THEN the System SHALL lock account
+# - The Auth Service SHALL enforce password minimum 12 characters
+
+# Test Engineer converts EARS requirements directly to test cases
+@test-engineer Generate tests from requirements
+
+# Result: Each EARS requirement becomes a test:
+# test_valid_login_returns_jwt()
+# test_three_failed_attempts_locks_account()
+# test_password_minimum_length_enforced()
+```
+
+### Benefits
+
+- ✅ **Direct Req → Test Mapping** - EARS requirements translate 1:1 to test cases
+- ✅ **No Ambiguity** - Every requirement is specific and measurable
+- ✅ **Better Coverage** - All scenarios (happy path, errors, edge cases) are explicit
+- ✅ **Faster Development** - Developers know exactly what to build
+- ✅ **Automated Validation** - Acceptance criteria are machine-verifiable
+
+### EARS Resources
+
+- **Guidelines**: `steering/rules/ears-format.md` - Comprehensive EARS format documentation
+- **Template**: `steering/templates/requirements.md` - Requirements document template with EARS examples
+- **Agents**: Requirements Analyst, System Architect, and Test Engineer all support EARS format
+
+---
 
 ## Available Agents (20 Specialists)
 

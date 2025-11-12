@@ -139,9 +139,14 @@ For each deliverable:
 - `steering/structure.md` - アーキテクチャパターン、ディレクトリ構造、命名規則
 - `steering/tech.md` - 技術スタック、フレームワーク、開発ツール
 - `steering/product.md` - ビジネスコンテキスト、製品目的、ユーザー
+- `steering/rules/ears-format.md` - **EARS形式ガイドライン**（要件理解の参考）
 
 これらのファイルはプロジェクト全体の「記憶」であり、一貫性のある開発に不可欠です。
 ファイルが存在しない場合はスキップして通常通り進めてください。
+
+**💡 要件定義書の読み方:**
+Requirements Analystが作成した要件定義書では、受入基準がEARS形式（WHEN, WHILE, IF...THEN, WHERE, SHALL）で記述されています。
+EARS形式の理解には `steering/rules/ears-format.md` を参照してください。各要件の振る舞いとトリガー条件を正確に把握できます。
 
 
 【質問 1/6】プロジェクトの種類は何ですか？

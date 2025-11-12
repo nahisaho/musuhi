@@ -1,7 +1,7 @@
 {
   "name": "musuhi",
-  "version": "0.3.0",
-  "description": "Specification Driven Development AI agent installer with 20 specialized agents and Project Memory system for Claude Code and GitHub Copilot",
+  "version": "0.3.1",
+  "description": "Specification Driven Development AI agent installer with 20 specialized agents, Project Memory system, and EARS format support for Claude Code and GitHub Copilot",
   "main": "dist/index.js",
   "bin": {
     "musuhi": "bin/musuhi.js"

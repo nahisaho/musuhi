@@ -107,9 +107,15 @@ For each deliverable:
 - `steering/structure.md` - アーキテクチャパターン、ディレクトリ構造、命名規則
 - `steering/tech.md` - 技術スタック、フレームワーク、開発ツール
 - `steering/product.md` - ビジネスコンテキスト、製品目的、ユーザー
+- `steering/rules/ears-format.md` - **EARS形式ガイドライン（要件定義の標準フォーマット）**
+- `steering/templates/requirements.md` - **要件定義書テンプレート（EARS例付き）**
 
 これらのファイルはプロジェクト全体の「記憶」であり、一貫性のある開発に不可欠です。
 ファイルが存在しない場合はスキップして通常通り進めてください。
+
+**⚠️ EARS形式の必須使用:**
+`steering/rules/ears-format.md`が存在する場合、**すべての受入基準は必ずEARS形式で記述してください**。
+EARS（Easy Approach to Requirements Syntax）は、テスト可能で曖昧さのない要件定義の標準です。
 
 
 【質問 1/6】プロジェクト名は何ですか？
@@ -538,6 +544,9 @@ c) 低
 **作成日**: [YYYY-MM-DD]
 **バージョン**: 1.0
 
+> **NOTE**: すべての受入基準はEARS形式（Easy Approach to Requirements Syntax）で記述します。
+> 詳細は `steering/rules/ears-format.md` を参照してください。
+
 ---
 
 ## FR-[番号]: [機能名]
@@ -562,10 +571,43 @@ c) 低
    - [出力項目1]
    - [出力項目2]
 
-### 受入基準
-- [ ] [基準1]
-- [ ] [基準2]
-- [ ] [基準3]
+### 受入基準（EARS形式）
+
+#### AC-1: [イベント駆動要件]
+**Pattern**: Event-Driven (WHEN)
+```
+WHEN [event], the [System/Service] SHALL [response]
+```
+
+**Test Verification**:
+- [ ] Unit test: [テスト内容]
+- [ ] Integration test: [テスト内容]
+
+---
+
+#### AC-2: [状態駆動要件]
+**Pattern**: State-Driven (WHILE)
+```
+WHILE [state], the [System/Service] SHALL [response]
+```
+
+**Test Verification**:
+- [ ] Unit test: [テスト内容]
+- [ ] Integration test: [テスト内容]
+
+---
+
+#### AC-3: [エラー処理要件]
+**Pattern**: Unwanted Behavior (IF...THEN)
+```
+IF [error condition], THEN the [System/Service] SHALL [response]
+```
+
+**Test Verification**:
+- [ ] Error handling test: [テスト内容]
+- [ ] E2E test: [テスト内容]
+
+---
 
 ### 制約条件
 - [制約1]
@@ -586,6 +628,8 @@ c) 低
 **エピック**: [Epic Name]
 **作成日**: [YYYY-MM-DD]
 
+> **NOTE**: 受入基準はEARS形式で記述します。詳細は `steering/rules/ears-format.md` を参照。
+
 ---
 
 ## US-[番号]: [ストーリー名]
@@ -594,14 +638,33 @@ c) 低
 **I want** [やりたいこと]
 **So that** [目的・理由]
 
-### 受入基準
-- [ ] **Given**: [前提条件]
-      **When**: [実行アクション]
-      **Then**: [期待結果]
+### 受入基準（EARS形式）
 
-- [ ] **Given**: [前提条件]
-      **When**: [実行アクション]
-      **Then**: [期待結果]
+#### AC-1: [要件タイトル]
+**Pattern**: [WHEN | WHILE | IF...THEN | WHERE | SHALL]
+```
+[EARS formatted requirement]
+```
+
+**Given-When-Then** (for BDD testing):
+- **Given**: [前提条件]
+- **When**: [実行アクション]
+- **Then**: [期待結果]
+
+---
+
+#### AC-2: [要件タイトル]
+**Pattern**: [WHEN | WHILE | IF...THEN | WHERE | SHALL]
+```
+[EARS formatted requirement]
+```
+
+**Given-When-Then** (for BDD testing):
+- **Given**: [前提条件]
+- **When**: [実行アクション]
+- **Then**: [期待結果]
+
+---
 
 ### 見積もり: [ストーリーポイント] SP
 ### 優先度: 高 / 中 / 低
