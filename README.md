@@ -1,4 +1,4 @@
-# Musuhi (結び)
+# Musuhi
 
 [日本語版 (Japanese)](./README.ja.md)
 
