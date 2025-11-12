@@ -1,6 +1,6 @@
 {
   "name": "musuhi",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Specification Driven Development AI agent installer with 20 specialized agents for Claude Code, GitHub Copilot, Cursor, Windsurf IDE, and AI CLIs (Gemini, Codex, Qwen)",
   "main": "dist/index.js",
   "bin": {

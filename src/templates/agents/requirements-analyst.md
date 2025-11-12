@@ -49,8 +49,8 @@ You analyze stakeholder needs, define clear functional and non-functional requir
 
 **参照例:**
 ```
-✅ 正しい: requirements/srs/srs-project-v1.0.md
-❌ 間違い: requirements/srs/srs-project-v1.0.ja.md
+✅ 正しい: docs/requirements/srs/srs-project-v1.0.md
+❌ 間違い: docs/requirements/srs/srs-project-v1.0.ja.md
 
 ✅ 正しい: architecture/architecture-design-project-20251111.md  
 ❌ 間違い: architecture/architecture-design-project-20251111.ja.md
@@ -377,16 +377,16 @@ c) 低
 🤖 成果物の生成が完了しました！
 
 【生成ファイル】（英語版 + 日本語版）
-📄 ./requirements/srs/srs-[project-name]-v1.0.md (English)
-📄 ./requirements/srs/srs-[project-name]-v1.0.ja.md (Japanese)
-📄 ./requirements/functional/functional-requirements-[project-name]-20251111.md (English)
-📄 ./requirements/functional/functional-requirements-[project-name]-20251111.ja.md (Japanese)
-📄 ./requirements/non-functional/non-functional-requirements-20251111.md (English)
-📄 ./requirements/non-functional/non-functional-requirements-20251111.ja.md (Japanese)
-📄 ./requirements/user-stories/user-stories-[feature]-20251111.md (English)
-📄 ./requirements/user-stories/user-stories-[feature]-20251111.ja.md (Japanese)
-📄 ./requirements/traceability-matrix-20251111.md (English)
-📄 ./requirements/traceability-matrix-20251111.ja.md (Japanese)
+📄 ./docs/requirements/srs/srs-[project-name]-v1.0.md (English)
+📄 ./docs/requirements/srs/srs-[project-name]-v1.0.ja.md (Japanese)
+📄 ./docs/requirements/functional/functional-requirements-[project-name]-20251111.md (English)
+📄 ./docs/requirements/functional/functional-requirements-[project-name]-20251111.ja.md (Japanese)
+📄 ./docs/requirements/non-functional/non-functional-requirements-20251111.md (English)
+📄 ./docs/requirements/non-functional/non-functional-requirements-20251111.ja.md (Japanese)
+📄 ./docs/requirements/user-stories/user-stories-[feature]-20251111.md (English)
+📄 ./docs/requirements/user-stories/user-stories-[feature]-20251111.ja.md (Japanese)
+📄 ./docs/requirements/traceability-matrix-20251111.md (English)
+📄 ./docs/requirements/traceability-matrix-20251111.ja.md (Japanese)
 
 合計: 10ファイル
 
@@ -930,8 +930,8 @@ IF [error condition], THEN the [System/Service] SHALL [response]
 - **実施内容**: ECサイト要件定義書作成
 - **進捗率**: 50%
 - **予定成果物**:
-  - `requirements/srs/srs-ecommerce-v1.0.md`
-  - `requirements/functional/functional-requirements-user-mgmt-20251111.md`
+  - `docs/requirements/srs/srs-ecommerce-v1.0.md`
+  - `docs/requirements/functional/functional-requirements-user-mgmt-20251111.md`
 - **ステータス**: 🔄 進行中
 ```
 
@@ -944,19 +944,19 @@ IF [error condition], THEN the [System/Service] SHALL [response]
 - **担当エージェント**: Requirements Analyst AI
 - **実施内容**: ECサイト要件定義書作成
 - **成果物**:
-  - `requirements/srs/srs-ecommerce-v1.0.md`
-  - `requirements/functional/functional-requirements-user-mgmt-20251111.md`
-  - `requirements/non-functional/non-functional-requirements-20251111.md`
+  - `docs/requirements/srs/srs-ecommerce-v1.0.md`
+  - `docs/requirements/functional/functional-requirements-user-mgmt-20251111.md`
+  - `docs/requirements/non-functional/non-functional-requirements-20251111.md`
 - **所要時間**: 30分
 - **ステータス**: ✅ 完了
 ```
 
 ### 出力ディレクトリ
-- **ベースパス**: `./requirements/`
-- **機能要件**: `./requirements/functional/`
-- **非機能要件**: `./requirements/non-functional/`
-- **ユーザーストーリー**: `./requirements/user-stories/`
-- **仕様書**: `./requirements/srs/`
+- **ベースパス**: `./docs/requirements/`
+- **機能要件**: `./docs/requirements/functional/`
+- **非機能要件**: `./docs/requirements/non-functional/`
+- **ユーザーストーリー**: `./docs/requirements/user-stories/`
+- **仕様書**: `./docs/requirements/srs/`
 
 ### ファイル命名規則
 - **SRS**:
