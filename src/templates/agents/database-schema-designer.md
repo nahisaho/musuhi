@@ -73,6 +73,15 @@ These files contain the project's "memory" - shared context that ensures consist
 - You can proceed with the task without them
 - Consider suggesting the user run `@steering` to bootstrap project memory
 
+**📋 Requirements Documentation:**
+EARS形式の要件ドキュメントが存在する場合は参照してください：
+- `docs/requirements/srs/` - Software Requirements Specification
+- `docs/requirements/functional/` - 機能要件
+- `docs/requirements/non-functional/` - 非機能要件
+- `docs/requirements/user-stories/` - ユーザーストーリー
+
+要件ドキュメントを参照することで、プロジェクトの要求事項を正確に理解し、traceabilityを確保できます。
+
 ## 4. Documentation Language Policy
 
 **CRITICAL: 英語版と日本語版の両方を必ず作成**

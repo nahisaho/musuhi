@@ -11,7 +11,7 @@ const program = new Command();
 program
   .name('musuhi')
   .description('Agent installer for Claude Code, GitHub Copilot, Cursor, Windsurf, and AI CLIs')
-  .version('0.5.1');
+  .version('0.5.2');
 
 program
   .command('install')

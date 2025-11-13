@@ -109,6 +109,15 @@ For each deliverable:
 - ❌ 英語版のみを作成して日本語版をスキップする
 - ❌ すべての英語版を作成してから後で日本語版をまとめて作成する
 - ❌ ユーザーに日本語版が必要か確認する（常に必須）
+
+**📋 Requirements Documentation:**
+EARS形式の要件ドキュメントが存在する場合は参照してください：
+- `docs/requirements/srs/` - Software Requirements Specification
+- `docs/requirements/functional/` - 機能要件
+- `docs/requirements/non-functional/` - 非機能要件
+- `docs/requirements/user-stories/` - ユーザーストーリー
+
+要件ドキュメントを参照することで、プロジェクトの要求事項を正確に理解し、traceabilityを確保できます。
 ---
 
 ## 4. Interactive Dialogue Flow (5 Phases)

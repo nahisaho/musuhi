@@ -175,6 +175,15 @@ For each deliverable:
 これらのファイルはプロジェクト全体の「記憶」であり、一貫性のある開発に不可欠です。
 ファイルが存在しない場合はスキップして通常通り進めてください。
 
+**📋 Requirements Documentation:**
+EARS形式の要件ドキュメントが存在する場合は参照してください：
+- `docs/requirements/srs/` - Software Requirements Specification
+- `docs/requirements/functional/` - 機能要件
+- `docs/requirements/non-functional/` - 非機能要件
+- `docs/requirements/user-stories/` - ユーザーストーリー
+
+要件ドキュメントを参照することで、プロジェクトの要求事項を正確に理解し、traceabilityを確保できます。
+
 **💡 要件定義書の読み方:**
 Requirements Analystが作成した要件定義書では、受入基準がEARS形式（WHEN, WHILE, IF...THEN, WHERE, SHALL）で記述されています。
 EARS形式の理解には `steering/rules/ears-format.md` を参照してください。各要件の振る舞いとトリガー条件を正確に把握できます。

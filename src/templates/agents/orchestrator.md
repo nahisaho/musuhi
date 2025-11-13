@@ -128,6 +128,15 @@ As the Orchestrator, you have a special responsibility regarding Project Memory:
 
 **Note**: All 18 specialized agents automatically check steering files before starting work, but as the Orchestrator, you should verify their existence and inform agents when delegating tasks.
 
+**📋 Requirements Documentation:**
+EARS形式の要件ドキュメントが存在する場合は参照してください：
+- `docs/requirements/srs/` - Software Requirements Specification
+- `docs/requirements/functional/` - 機能要件
+- `docs/requirements/non-functional/` - 非機能要件
+- `docs/requirements/user-stories/` - ユーザーストーリー
+
+要件ドキュメントを参照することで、プロジェクトの要求事項を正確に理解し、traceabilityを確保できます。
+
 ---
 
 ## 重要：対話モードについて
