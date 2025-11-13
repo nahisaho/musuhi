@@ -57,6 +57,16 @@ export async function installAgents(options: InstallOptions): Promise<void> {
       await fs.mkdir(dirPath, { recursive: true });
     }
 
+    // requirements テンプレートファイルを docs/requirements/ にコピー
+    const requirementsTemplateFiles = ['requirements.md', 'requirements.ja.md'];
+    for (const templateFile of requirementsTemplateFiles) {
+      const srcPath = path.join(steeringTemplateDir, 'templates', templateFile);
+      const destPath = path.join(docsRequirementsDir, templateFile);
+      if (await fileExists(srcPath)) {
+        await fs.copyFile(srcPath, destPath);
+      }
+    }
+
     // ツール固有の設定ファイルをコピー
     if (await directoryExists(toolTemplateDir)) {
       const entries = await fs.readdir(toolTemplateDir, { withFileTypes: true });
